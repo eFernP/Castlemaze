@@ -21,18 +21,7 @@ Para crear este juego utilizaré Canvas para poder crear las distintas pantallas
 ## Estructuras de Datos
 
 
-Clase "Main"
-
-- main()
-- buildDom(html)
-- buildSplashScreen()
-- buildGameScreen()
-- buildGameOver()
-- setPlayerDirection()
-
-
-
-Clase "Game"
+Game:
 
 - startLoop()
 - updateCanvas()
@@ -42,7 +31,7 @@ Clase "Game"
 - gameOverCallback(callback)
 
 
-Clase "Player"
+Player:
 
 - update()
 - draw()
@@ -51,35 +40,45 @@ Clase "Player"
 - checkDoor(door)
 - checkEnemy(enemy)
 
-Clase "Enemy"
+Enemy;
 
 - update(player)
 - draw()
 
-Clase "Door"
+Door:
 
 - draw()
 
 
-Clase "Platform"
+Platform:
 
 - draw()
 
 
 ## States y States Transitions
 
-Definicion del las transiciones del juego y del main.
+Transiciones:
 
-- splashScreen
-- gameScreen
-- gameoverScreen
-- winScreen
+- splashScreen()
+- gameScreen()
+- gameScreen2()
+- gameoverScreen()
+- winScreen()
 
-funciones de transicion.
+Main:
+
+- main()
+- buildDom(html)
+- buildSplashScreen()
+- buildGameScreen()
+- buildGameOver()
+- setPlayerDirection()
+
 
 ## Task
 
 - Crear las tres pantallas e implementar las transiciones entre ellas.
+- Crear loop
 - Crear el player y sus movimientos.
 - Crear las plataformas del primer nivel del juego.
 - Implementar las colisiones entre el player y las plataformas.
