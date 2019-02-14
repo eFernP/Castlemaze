@@ -14,9 +14,9 @@ Para crear este juego utilizaré Canvas para poder crear las distintas pantallas
 - Más objetos (espada y llave)
 - Cronómetro
 - Enemigos más fuertes
-- Sonidos
-- Imágenes para la splashScreen, gameOverScreen y winScreen
+- Imágenes y CSS para la splashScreen, gameOverScreen y winScreen
 - Animar el player y los enemigos
+- Sonidos
 
 
 ## Estructuras de Datos
@@ -103,7 +103,9 @@ Main:
 - buildDom(html)
 - buildSplashScreen()
 - buildGameScreen()
-- buildGameOver()
+- buildGame2Screen()
+- buildGameOverScreen()
+- buildWinScreen()
 - setPlayerDirection()
 
 

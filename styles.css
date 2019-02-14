@@ -1,0 +1,101 @@
+/* ---- reset ---- */
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  color: #111;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 147%;
+}
+
+p {
+  margin: 0;
+}
+
+.section {
+  margin-bottom: 20px;
+  padding-top: 20px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 728px;
+    margin: 0 auto;
+  }
+}
+
+.button {
+  background-color: rgb(69, 34, 97);
+  color: #fff;
+  padding: 20px;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+}
+
+
+.splash-screen{
+  display: grid;
+  justify-items: center;
+ 
+}
+
+.game-screen{
+  display: grid;
+  justify-items: center;
+  margin-top: 5%;
+  width: 100%;
+  height: 500px;
+  
+}
+
+canvas{
+  background-color: #111;
+}
+
+.game-over-screen{
+  display: grid;
+  justify-items: center;
+ 
+}
+
+.win-screen{
+  display: grid;
+  justify-items: center;
+ 
+}
+
+.text-splash{
+  margin: 100px 0;
+}
+
+.title-splash{
+  text-align: center;
+  font-size: 60px;
+}
+
+.subtitle-splash{
+  text-align : center;
+  font-size: 30px;
+}
+
+.text-win, .text-game-over{
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
+canvas{
+  border: 1px black solid;
+}
