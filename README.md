@@ -40,8 +40,9 @@ Game:
 
 Player:
 
-- size
 - canvas
+- context
+- size
 - x
 - y
 - speed
@@ -55,20 +56,21 @@ Player:
 
 Enemy;
 
-- size
 - canvas
+- context
+- size
 - x
 - y
 - speed
 - direction
-- context
 - update(player)
 - draw()
 
 Door:
 
-- size
 - canvas
+- context
+- size
 - x
 - y
 - draw()
@@ -76,8 +78,9 @@ Door:
 
 Platform:
 
-- size
 - canvas
+- context
+- size
 - x
 - y
 - draw()
