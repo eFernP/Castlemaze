@@ -49,4 +49,35 @@ class Player{
     }
   };
 
+  checkPlatform(platform){
+    const collideRight = this.x + this.size/2 > platform.x - platform.sizeX/2;
+    const collideLeft = this.x - this.size/2 < platform.x + platform.sizeX/2;
+    const collideTop = this.y - this.size/2 <  platform.y + platform.sizeY/2;
+    const collideBottom = this.y + this.size/2 > platform.y - platform.sizeY/2;
+
+    if (collideRight && collideLeft && collideTop && collideBottom){
+
+      if(this.y <= platform.y+platform.sizeY && this.y + this.size/2 > platform.y+platform.sizeY){
+        this.y = platform.y+platform.sizeY+this.size/2;
+        this.jumpSpeed = 0;
+      }
+
+      if(this.y+this.size/2 >= platform.y && this.y < platform.y){
+        this.y = platform.y-this.size;
+        this.isColliding = true;  
+        console.log("UP");
+      }
+
+      console.log("Collision");
+      return true;
+     
+    }else{
+      return false;
+    }
+    // const collideTop = this.y - this.size/2 <  platform.y + platform.sizeY/2;
+    // if(collideTop){
+    //   console.log("Collision");
+    // }
+    
+  };
 }

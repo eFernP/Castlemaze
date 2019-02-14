@@ -47,5 +47,8 @@ class Game{
 
   checkAllCollisions(){
     this.player.checkScreen();
+    this.platforms.forEach((p)=>{
+      this.player.checkPlatform(p);
+    });
   }
 }
