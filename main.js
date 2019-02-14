@@ -2,6 +2,9 @@
 
 const main = () => {
   
+  let leftPressed = false;
+  let rightPressed = false;
+
   const buildDom = (html) => {
     const main = document.querySelector('main');
     main.innerHTML = html; 
@@ -46,15 +49,29 @@ const main = () => {
       if(event.code === 'ArrowLeft'){
         game.player.setDirection(-1);
         game.player.x --;
+        leftPressed = true;
       } else if(event.code ==='ArrowRight'){
         game.player.setDirection(1);
         game.player.x ++;
+        rightPressed = true;
       }
     };
 
     const stopPlayer = () => {
-      if(event.code === 'ArrowLeft' || event.code === 'ArrowRight'){
-        game.player.setDirection(0);
+      if(event.code === 'ArrowLeft'){
+        if(rightPressed){
+          game.player.setDirection(1);
+        }else{
+          game.player.setDirection(0);
+        }
+        leftPressed = false;
+      } else if (event.code === 'ArrowRight'){
+        if(leftPressed){
+          game.player.setDirection(-1);
+        }else{
+          game.player.setDirection(0);
+        }
+        rightPressed = false;
       }
     };
 
