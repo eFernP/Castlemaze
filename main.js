@@ -45,8 +45,10 @@ const main = () => {
     const setPlayerDirection = () => {
       if(event.code === 'ArrowLeft'){
         game.player.setDirection(-1);
+        game.player.x --;
       } else if(event.code ==='ArrowRight'){
         game.player.setDirection(1);
+        game.player.x ++;
       }
     };
 
@@ -56,15 +58,17 @@ const main = () => {
       }
     };
 
-    // const jumpPlayer = () => {
-    //   if (event.code === 'space'){
-    //     game.player.jump();
-    //   }
-    // }
+    const jumpPlayer = () => {
+      if (event.code === 'Space' && game.player.isColliding === true){
+        game.player.jumpSpeed = -10;
+        game.player.y = game.player.y - 1;
+        game.player.isColliding = false;
+      }
+    }
   
     document.addEventListener('keydown', setPlayerDirection);
     document.addEventListener('keyup', stopPlayer);
-    //document.addEventListener('keydown', jumpPlayer);
+    document.addEventListener('keydown', jumpPlayer);
 
   };
 

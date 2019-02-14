@@ -16,6 +16,7 @@ class Game{
     this.player = new Player(this.canvas);
     const loop = () =>{
       if (!this.isGameOver){
+        this.checkAllCollisions();
         this.clearCanvas();
         this.updateCanvas();
         this.drawCanvas();
@@ -38,5 +39,9 @@ class Game{
 
   clearCanvas(){
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+  }
+
+  checkAllCollisions(){
+    this.player.checkScreen();
   }
 }
