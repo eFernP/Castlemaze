@@ -23,47 +23,47 @@ Para crear este juego utilizaré Canvas para poder crear las distintas pantallas
 
 Clase "Main"
 
-main()
-buildDom(html)
-buildSplashScreen()
-buildGameScreen()
-buildGameOver()
-setPlayerDirection()
+- main()
+- buildDom(html)
+- buildSplashScreen()
+- buildGameScreen()
+- buildGameOver()
+- setPlayerDirection()
 
 
 
 Clase "Game"
 
-startLoop()
-updateCanvas()
-clearCanvas()
-drawCanvas()
-checkAllCollisions()
-gameOverCallback(callback)
+- startLoop()
+- updateCanvas()
+- clearCanvas()
+- drawCanvas()
+- checkAllCollisions()
+- gameOverCallback(callback)
 
 
 Clase "Player"
 
-update()
-draw()
-checkScreen()
-checkPlatform(platform)
-checkDoor(door)
-checkEnemy(enemy)
+- update()
+- draw()
+- checkScreen()
+- checkPlatform(platform)
+- checkDoor(door)
+- checkEnemy(enemy)
 
 Clase "Enemy"
 
-update(player)
-draw()
+- update(player)
+- draw()
 
 Clase "Door"
 
-draw()
+- draw()
 
 
 Clase "Platform"
 
-draw()
+- draw()
 
 
 ## States y States Transitions
