@@ -9,11 +9,6 @@ class Player{
     this.y = this.canvas.height-(this.size/2);
     this.direction = 0;
     this.speed = 3;
-    this.speedJump = 4;
-    this.isJumping = false;
-    this.isFalling = false;
-    this.jumpSize = 20;
-    this.countJump = 0;
     this.jumpSpeed = 0;
     this.isColliding = true;
     this.gravity = 0.5;
@@ -26,19 +21,6 @@ class Player{
       this.y = this.y + this.jumpSpeed;
       this.jumpSpeed = this.jumpSpeed + this.gravity;
     };
-    // if(this.isJumping === true){
-    //   this.y = this.y - this.speedJump;
-    //   this.countJump ++;
-    //   if (this.countJump > this.jumpSize){
-    //     this.isJumping = false;
-    //     this.countJump = 0;
-    //     this.isFalling = true;
-    //   }
-    // }
-
-    // if (this.isFalling === true){
-    //   this.y = this.y + this.speedJump/1.5;
-    // }
   }
 
   draw(){
@@ -48,10 +30,6 @@ class Player{
 
   setDirection(direction){
     this.direction = direction; 
-  };
-
-  jump(){
-    this.isJumping = true;
   };
 
   checkScreen(){

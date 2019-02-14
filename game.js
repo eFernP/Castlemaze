@@ -14,6 +14,7 @@ class Game{
   startLoop(){
 
     this.player = new Player(this.canvas);
+    this.platforms.push(new Platform(this.canvas));
     const loop = () =>{
       if (!this.isGameOver){
         this.checkAllCollisions();
@@ -35,6 +36,9 @@ class Game{
 
   drawCanvas(){
     this.player.draw();
+    this.platforms.forEach((p)=> {
+      p.draw();
+    });
   }
 
   clearCanvas(){
