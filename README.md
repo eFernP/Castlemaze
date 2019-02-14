@@ -23,6 +23,13 @@ Para crear este juego utilizaré Canvas para poder crear las distintas pantallas
 
 Game:
 
+- canvas
+- context
+- player
+- enemies
+- doors
+- platforms
+- isGameOver
 - startLoop()
 - updateCanvas()
 - clearCanvas()
@@ -33,6 +40,12 @@ Game:
 
 Player:
 
+- size
+- canvas
+- x
+- y
+- speed
+- direction
 - update()
 - draw()
 - checkScreen()
@@ -42,16 +55,31 @@ Player:
 
 Enemy;
 
+- size
+- canvas
+- x
+- y
+- speed
+- direction
+- context
 - update(player)
 - draw()
 
 Door:
 
+- size
+- canvas
+- x
+- y
 - draw()
 
 
 Platform:
 
+- size
+- canvas
+- x
+- y
 - draw()
 
 
