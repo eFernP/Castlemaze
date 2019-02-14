@@ -1,3 +1,5 @@
 # Castlemaze
 
-## Project 1: Platform game
+## Description 
+
+Project 1: Platform game
