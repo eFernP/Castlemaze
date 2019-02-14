@@ -6,7 +6,7 @@ Mi primer proyecto se trata de un juego de plataformas. El jugador tiene que esc
 
 ## MVP - Tecnología
 
-Para crear este juego utilizaré Canvas para poder crear las distintas pantallas que lo conforman.
+Para crear este juego utilizaré Canvas para poder crear las distintas pantallas que lo conforman. Como mínimo me propongo crear un jugador que se pueda mover hacia la derecha y hacia la izquierda, saltar, subirse a una plataforma y cruzar una puerta por la que acceder a otro nivel.
 
 ## Backlog
 

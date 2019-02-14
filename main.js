@@ -5,8 +5,7 @@ const main = () => {
   const buildDom = (html) => {
     const main = document.querySelector('main');
     main.innerHTML = html; 
-
-    return main
+    return main;
   };
 
   const buildSplashScreen = () => {
@@ -42,9 +41,32 @@ const main = () => {
 
     const game = new Game(canvasElement);
     game.startLoop();
-    
-  };
 
+    const setPlayerDirection = () => {
+      if(event.code === 'ArrowLeft'){
+        game.player.setDirection(-1);
+      } else if(event.code ==='ArrowRight'){
+        game.player.setDirection(1);
+      }
+    };
+
+    const stopPlayer = () => {
+      if(event.code === 'ArrowLeft' || event.code === 'ArrowRight'){
+        game.player.setDirection(0);
+      }
+    };
+
+    // const jumpPlayer = () => {
+    //   if (event.code === 'space'){
+    //     game.player.jump();
+    //   }
+    // }
+  
+    document.addEventListener('keydown', setPlayerDirection);
+    document.addEventListener('keyup', stopPlayer);
+    //document.addEventListener('keydown', jumpPlayer);
+
+  };
 
   const buildGameOverScreen = () => {
     const splashScreen = buildDom(`
