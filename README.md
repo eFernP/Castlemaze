@@ -4,7 +4,7 @@
 
 Mi primer proyecto se trata de un juego de plataformas. El jugador tiene que escapar del castillo en el que está atrapado, avanzando entre sus distintas salas y esquivando o deshaciéndose de los enemigos y peligros que vaya encontrando. 
 
-## MVP - Tecnología (DOM - CANVAS)
+## MVP - Tecnología
 
 Para crear este juego utilizaré Canvas para poder crear las distintas pantallas que lo conforman.
 
