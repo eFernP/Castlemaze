@@ -10,8 +10,9 @@ Para crear este juego utilizaré Canvas para poder crear las distintas pantallas
 
 ## Backlog
 
-- Cronómetro
+- Más niveles
 - Más objetos (espada y llave)
+- Cronómetro
 - Enemigos más fuertes
 - Sonidos
 - Imágenes para la splashScreen, gameOverScreen y winScreen
