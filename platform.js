@@ -2,7 +2,8 @@
 
 class Platform{
 
-  constructor(canvas, x, y, sizeX, sizeY){
+  constructor(level, canvas, x, y, sizeX, sizeY){
+    this.level = level;
     this.canvas = canvas;
     this.context = this.canvas.getContext('2d');
     this.sizeX =  sizeX;

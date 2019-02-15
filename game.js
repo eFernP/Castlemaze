@@ -9,13 +9,18 @@ class Game{
     this.doors = [];
     this.platforms = [];
     this.isGameOver = false;
+    this.level = 1;
+   
   };
 
   startLoop(){
 
+    this.platforms.push(new Platform(1, this.canvas, this.canvas.width-100, this.canvas.height-60, 100, 25));
+    this.platforms.push(new Platform(1, this.canvas, this.canvas.width-300, this.canvas.height-150, 100, 25));
+    this.doors.push(new Door(1, this.canvas, this.canvas.width-300, this.canvas.height-197.5));
+    this.doors.push(new Door(2, this.canvas, this.canvas.width-500, this.canvas.height-35));
+    
     this.player = new Player(this.canvas);
-    this.platforms.push(new Platform(this.canvas, this.canvas.width-100, this.canvas.height-60, 100, 25));
-    this.platforms.push(new Platform(this.canvas, this.canvas.width-300, this.canvas.height-150, 100, 25));
     const loop = () =>{
       if (!this.isGameOver){
         this.checkAllCollisions();
@@ -36,10 +41,20 @@ class Game{
   }
 
   drawCanvas(){
-    this.player.draw();
+    
     this.platforms.forEach((p)=> {
-      p.draw();
+      if (p.level === this.level){
+        p.draw();
+      }
     });
+
+    this.doors.forEach((d)=> {
+      if (d.level === this.level){
+        d.draw();
+      }
+    });
+
+    this.player.draw();
   }
 
   clearCanvas(){
@@ -51,7 +66,11 @@ class Game{
     let inPlatform = [];
     let minOne = false;
     this.platforms.forEach((p)=>{
-      inPlatform.push(this.player.checkPlatform(p));
+
+      if (p.level === this.level){
+        inPlatform.push(this.player.checkPlatform(p));
+      }
+     
       
     });
 
@@ -66,5 +85,22 @@ class Game{
         this.player.isColliding = false;
       }
     }
-  }
+
+    this.doors.forEach((p, index)=>{
+      if (this.player.checkDoor(p)){
+        if (index === 0){
+          this.level = 2;
+          this.player.x = this.canvas.width-550;
+          this.player.y = this.canvas.height-this.player.size/2;
+        }
+
+        if (index === 1){
+          this.level = 1;
+          this.player.x = this.canvas.width-330;
+          this.player.y = this.canvas.height-162.5-this.player.size/2;
+        }
+        
+      }
+    });
+  };
 }

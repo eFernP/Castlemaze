@@ -83,4 +83,20 @@ class Player{
       return false;
     }
   };
+
+
+  checkDoor(door){
+    const collideRight = this.x + this.size/2 >= door.x;
+    const collideLeft = this.x - this.size/2 <= door.x;
+    const collideTop = this.y - this.size/2 <=  door.y;
+    const collideBottom = this.y + this.size/2 >= door.y;
+
+    if (collideRight && collideLeft && collideTop && collideBottom){
+      return true;
+
+    } else{
+      return false;
+    }
+  
+  };
 }
