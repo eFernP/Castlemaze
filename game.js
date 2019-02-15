@@ -111,7 +111,7 @@ class Game{
           if (index === 1){
             this.level = 1;
             this.player.x = this.canvas.width-330;
-            this.player.y = this.canvas.height-162.5-this.player.size/2;
+            this.player.y = this.canvas.height-112.5-this.player.size/2;
           }
 
           if (index === 2){
@@ -122,9 +122,22 @@ class Game{
         }
       }
     });
+
+    this.enemies.forEach((e)=>{
+      if (e.level === this.level){
+        if(this.player.checkEnemy(e)){
+          this.isGameOver = true;
+          this.onGameOver();
+        }
+      }
+    });
   };
 
   winCallback(callback){
     this.onWin = callback;
+  }
+
+  gameOverCallback(callback){
+    this.onGameOver = callback;
   }
 }

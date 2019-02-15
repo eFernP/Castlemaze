@@ -99,4 +99,18 @@ class Player{
     }
   
   };
+
+  checkEnemy(enemy){
+    const collideRight = this.x + this.size/2 >= enemy.x - enemy.sizeX/2;
+    const collideLeft = this.x - this.size/2 <= enemy.x + enemy.sizeX/2;
+    const collideTop = this.y - this.size/2 <=  enemy.y + enemy.sizeY/2;
+    const collideBottom = this.y + this.size/2 >= enemy.y - enemy.sizeY/2;
+
+    if (collideRight && collideLeft && collideTop && collideBottom){
+      return true;
+
+    } else{
+      return false;
+    }
+  };
 }
