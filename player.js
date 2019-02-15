@@ -66,7 +66,7 @@ class Player{
     if (collideRight && collideLeft && collideTop && collideBottom){
 
       if(this.y-this.size/2 < platform.y+platform.sizeY/2 && this.y + this.size/2 > platform.y+platform.sizeY/2){
-        this.y = platform.y+platform.sizeY+this.size/2;
+        this.y = platform.y+platform.sizeY/2+this.size/2;
         this.jumpSpeed = 0;
         
       }

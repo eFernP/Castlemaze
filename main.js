@@ -43,6 +43,7 @@ const main = () => {
     //setTimeout(buildWinScreen, 3000);
 
     const game = new Game(canvasElement);
+    game.winCallback(buildWinScreen);
     game.startLoop();
 
     const setPlayerDirection = () => {
