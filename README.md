@@ -13,7 +13,7 @@ Para crear este juego utilizaré Canvas para poder crear las distintas pantallas
 - Más niveles
 - Más objetos (espada y llave)
 - Cronómetro
-- Enemigos más fuertes
+- Enemigos más fuertes o trampa de pinchos
 - Imágenes y CSS para la splashScreen, gameOverScreen y winScreen
 - Animar el player y los enemigos
 - Sonidos

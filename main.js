@@ -40,8 +40,6 @@ const main = () => {
     canvasElement.setAttribute('width', width);
     canvasElement.setAttribute('height', height);
 
-    //setTimeout(buildWinScreen, 3000);
-
     const game = new Game(canvasElement);
     game.winCallback(buildWinScreen);
     game.startLoop();

@@ -16,10 +16,12 @@ class Game{
   startLoop(){
 
     this.platforms.push(new Platform(1, this.canvas, this.canvas.width-100, this.canvas.height-60, 100, 25));
-    this.platforms.push(new Platform(1, this.canvas, this.canvas.width-300, this.canvas.height-150, 100, 25));
-    this.doors.push(new Door(1, this.canvas, this.canvas.width-300, this.canvas.height-197.5));
+    this.platforms.push(new Platform(1, this.canvas, this.canvas.width-300, this.canvas.height-100, 100, 25));
+    this.doors.push(new Door(1, this.canvas, this.canvas.width-300, this.canvas.height-147.5));
     this.doors.push(new Door(2, this.canvas, 100, this.canvas.height-35));
     this.doors.push(new Door(2, this.canvas, this.canvas.width-100, this.canvas.height-35));
+    this.enemies.push(new Enemy(2, this.canvas, this.canvas.width/2, this.canvas.height-30, 1, 50));
+
     this.player = new Player(this.canvas);
     const loop = () =>{
       if (!this.isGameOver){
@@ -38,6 +40,12 @@ class Game{
 
   updateCanvas(){
     this.player.update();
+
+    this.enemies.forEach((e)=> {
+      if (e.level === this.level){
+        e.update();
+      }
+    });
   }
 
   drawCanvas(){
@@ -51,6 +59,13 @@ class Game{
     this.doors.forEach((d)=> {
       if (d.level === this.level){
         d.draw();
+      }
+    });
+
+
+    this.enemies.forEach((e)=> {
+      if (e.level === this.level){
+        e.draw();
       }
     });
 
