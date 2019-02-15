@@ -33,11 +33,13 @@ class Player{
   };
 
   checkScreen(){
+    let inFloor = false;
     if (this.y - (this.size/2) <= 0){
       
     }else if(this.y + (this.size/2) >= this.canvas.height){
       this.isColliding = true;  
       this.y = this.canvas.height- this.size/2;
+      inFloor = true;
     }
 
     if (this.x - (this.size/2) <= 0){
@@ -47,37 +49,38 @@ class Player{
       this.direction = 0;
       this.x = this.canvas.width - this.size/2;
     }
+
+    if (inFloor){
+      return true;
+    }else{
+      return false;
+    };
   };
 
   checkPlatform(platform){
-    const collideRight = this.x + this.size/2 > platform.x - platform.sizeX/2;
-    const collideLeft = this.x - this.size/2 < platform.x + platform.sizeX/2;
-    const collideTop = this.y - this.size/2 <  platform.y + platform.sizeY/2;
-    const collideBottom = this.y + this.size/2 > platform.y - platform.sizeY/2;
+    const collideRight = this.x + this.size/2 >= platform.x - platform.sizeX/2;
+    const collideLeft = this.x - this.size/2 <= platform.x + platform.sizeX/2;
+    const collideTop = this.y - this.size/2 <=  platform.y + platform.sizeY/2;
+    const collideBottom = this.y + this.size/2 >= platform.y - platform.sizeY/2;
 
     if (collideRight && collideLeft && collideTop && collideBottom){
 
-      if(this.y <= platform.y+platform.sizeY && this.y + this.size/2 > platform.y+platform.sizeY){
+      if(this.y-this.size/2 < platform.y+platform.sizeY/2 && this.y + this.size/2 > platform.y+platform.sizeY/2){
         this.y = platform.y+platform.sizeY+this.size/2;
         this.jumpSpeed = 0;
+        
       }
 
-      if(this.y+this.size/2 >= platform.y && this.y < platform.y){
-        this.y = platform.y-this.size;
-        this.isColliding = true;  
-        console.log("UP");
+      if(this.y+this.size/2 > platform.y-platform.sizeY/2 && this.y-this.size/2 < platform.y-platform.sizeY/2){
+        this.y = platform.y-this.size/2-platform.sizeY/2;
+        this.isColliding = true; 
+         
       }
 
-      console.log("Collision");
       return true;
      
     }else{
       return false;
     }
-    // const collideTop = this.y - this.size/2 <  platform.y + platform.sizeY/2;
-    // if(collideTop){
-    //   console.log("Collision");
-    // }
-    
   };
 }
