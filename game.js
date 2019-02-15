@@ -8,6 +8,7 @@ class Game{
     this.enemies = [];
     this.doors = [];
     this.platforms = [];
+    this.spikes = [];
     this.isGameOver = false;
     this.level = 1;
    
@@ -21,6 +22,7 @@ class Game{
     this.doors.push(new Door(2, this.canvas, 100, this.canvas.height-35));
     this.doors.push(new Door(2, this.canvas, this.canvas.width-100, this.canvas.height-35));
     this.enemies.push(new Enemy(2, this.canvas, this.canvas.width/2, this.canvas.height-30, 1, 50));
+    this.spikes.push(new Spike(1, this.canvas, 100, this.canvas.height+25, 'bottom'));
 
     this.player = new Player(this.canvas);
     const loop = () =>{
@@ -46,6 +48,12 @@ class Game{
         e.update();
       }
     });
+
+    this.spikes.forEach((s)=> {
+      if (s.level === this.level){
+        s.update();
+      }
+    });
   }
 
   drawCanvas(){
@@ -66,6 +74,12 @@ class Game{
     this.enemies.forEach((e)=> {
       if (e.level === this.level){
         e.draw();
+      }
+    });
+
+    this.spikes.forEach((s)=> {
+      if (s.level === this.level){
+        s.draw();
       }
     });
 
@@ -126,6 +140,15 @@ class Game{
     this.enemies.forEach((e)=>{
       if (e.level === this.level){
         if(this.player.checkEnemy(e)){
+          this.isGameOver = true;
+          this.onGameOver();
+        }
+      }
+    });
+
+    this.spikes.forEach((s)=>{
+      if (s.level === this.level){
+        if(this.player.checkSpike(s)){
           this.isGameOver = true;
           this.onGameOver();
         }
