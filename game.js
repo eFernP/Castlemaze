@@ -211,162 +211,163 @@ class Game{
           
           if (index === 0){
             this.level = 7;
-            this.player.x = this.canvas.width/2-100-this.player.size/2;
+            this.player.x = this.canvas.width/2-100;
             this.player.y = this.canvas.height-100;
           }
           else if (index === 1){
             this.level = 2;
-            this.player.x = this.player.size/2;
+            this.player.x = 200;
             this.player.y = this.canvas.height-this.player.size/2;
           }
           else if (index === 2){
             this.level = 4;
-            this.player.x = this.player.size/2;
-            this.player.y = this.canvas.height-this.player.size/2;
+            this.player.x = 150;
+            this.player.y = this.canvas.height-100-this.player.size/2;
+          
           }
           else if (index === 3){
             this.level = 1;
-            this.player.x = this.player.size/2;
+            this.player.x = this.canvas.width-200;
             this.player.y = this.canvas.height-this.player.size/2;
           }
           else if (index === 4){
             this.level = 3;
-            this.player.x = this.player.size/2;
+            this.player.x = this.canvas.width-150;
             this.player.y = this.canvas.height-this.player.size/2;
           }
           else if (index === 5){
             this.level = 6;
-            this.player.x = this.player.size/2;
+            this.player.x = this.canvas.width-150;
             this.player.y = this.canvas.height-this.player.size/2;
           }
           else if (index === 6){
             this.level = 10;
-            this.player.x = this.player.size/2;
-            this.player.y = this.canvas.height-this.player.size/2;
+            this.player.x = 200;
+            this.player.y = this.canvas.height-150-this.player.size/2;
           }
           else if (index === 7){
             this.level = 2;
-            this.player.x = this.player.size/2;
+            this.player.x = this.canvas.width-250;
             this.player.y = this.canvas.height-this.player.size/2;
           }
           else if (index === 8){
             this.level = 5;
-            this.player.x = this.player.size/2;
+            this.player.x = this.canvas.width-200;
             this.player.y = this.canvas.height-this.player.size/2;
           }
           else if (index === 9){
             this.level = 13;
-            this.player.x = this.player.size/2;
-            this.player.y = this.canvas.height-this.player.size/2;
+            this.player.x = this.canvas.width/2;
+            this.player.y = 75;
           }
           else if (index === 10){
             this.level = 1;
-            this.player.x = this.player.size/2;
-            this.player.y = this.canvas.height-this.player.size/2;
+            this.player.x = this.canvas.width-200;
+            this.player.y = this.canvas.height-200-this.player.size/2;
           }
           else if (index === 11){
             this.level = 6;
-            this.player.x = this.player.size/2;
-            this.player.y = this.canvas.height-this.player.size/2;
+            this.player.x = 125;
+            this.player.y = this.canvas.height-300-this.player.size/2;
           }
           else if (index === 12){
             this.level = 3;
-            this.player.x = this.player.size/2;
-            this.player.y = this.canvas.height-this.player.size/2;
+            this.player.x = this.canvas.width-150;
+            this.player.y = this.canvas.height-135-this.player.size/2;
           }
           else if (index === 13){
             this.level = 12;
-            this.player.x = this.player.size/2;
+            this.player.x =  this.canvas.width-150;
             this.player.y = this.canvas.height-this.player.size/2;
           }
           else if (index === 14){
             this.level = 8;
-            this.player.x = this.player.size/2;
+            this.player.x = this.canvas.width/2-50;
             this.player.y = this.canvas.height-this.player.size/2;
           }
           else if (index === 15){
             this.level = 4;
-            this.player.x = this.player.size/2;
+            this.player.x = this.canvas.width-250;
             this.player.y = this.canvas.height-this.player.size/2;
           }
           else if (index === 16){
             this.level = 2;
-            this.player.x = this.player.size/2;
-            this.player.y = this.canvas.height-this.player.size/2;
+            this.player.x = this.canvas.width/2+50;
+            this.player.y = 235-this.player.size/2;
           }
           else if (index === 17){
             this.level = 7;
-            this.player.x = this.player.size/2;
+            this.player.x = this.canvas.width-125;
             this.player.y = this.canvas.height-this.player.size/2;
           }
           else if (index === 18){
             this.level = 8;
-            this.player.x = this.player.size/2;
-            this.player.y = this.canvas.height-this.player.size/2;
+            this.player.x = 125;
+            this.player.y = this.canvas.height-150-this.player.size/2;
           }
           else if (index === 19){
             this.level = 6;
-            this.player.x = this.player.size/2;
-            this.player.y = this.canvas.height-this.player.size/2;
+            this.player.x = this.canvas.width-150;
+            this.player.y = this.canvas.height-300-this.player.size/2;
           }
           else if (index === 20){
             this.level = 1;
-            this.player.x = this.player.size/2;
+            this.player.x = 200;
             this.player.y = this.canvas.height-this.player.size/2;
           }
           else if (index === 21){
             this.level = 13;
-            this.player.x = this.player.size/2;
-            this.player.y = this.canvas.height-this.player.size/2;
+            this.player.x = this.canvas.width;
+            this.player.y = 75;
           }
           else if (index === 22){
             this.level = 7;
-            this.player.x = this.player.size/2;
+            this.player.x = 150;
             this.player.y = this.canvas.height-this.player.size/2;
           }
           else if (index === 23){
             this.level = 9;
-            this.player.x = this.player.size/2;
+            this.player.x = 200;
             this.player.y = this.canvas.height-this.player.size/2;
           }
           else if (index === 24){
             this.level = 5;
-            this.player.x = this.player.size/2;
-            this.player.y = this.canvas.height-this.player.size/2;
+            this.player.x = this.canvas.width-200;
+            this.player.y = this.canvas.height-400-this.player.size/2;
           }
           else if (index === 25){
             this.level = 8;
-            this.player.x = this.player.size/2;
-            this.player.y = this.canvas.height-this.player.size/2;
+            this.player.x = this.canvas.width-125;
+            this.player.y = this.canvas.height-150-this.player.size/2;
           }
           else if (index === 26){
             this.level = 13;
-            this.player.x = this.player.size/2;
-            this.player.y = this.canvas.height-this.player.size/2;
+            this.player.x = this.canvas.width/2;
+            this.player.y = 75;
           }
           else if (index === 27){
             this.level = 10;
-            this.player.x = this.player.size/2;
+            this.player.x = this.canvas.width-200;
             this.player.y = this.canvas.height-this.player.size/2;
           }
           else if (index === 28){
             this.level = 9;
-            this.player.x = this.player.size/2;
-            this.player.y = this.canvas.height-this.player.size/2;
+            this.player.x = this.canvas.width/2-50;
+            this.player.y = 235-this.player.size/2;
           }
           else if (index === 29){
             this.level = 11;
-            this.player.x = this.player.size/2;
+            this.player.x = 150;
             this.player.y = this.canvas.height-this.player.size/2;
           }
           else if (index === 30){
             this.level = 2;
-            this.player.x = this.player.size/2;
-            this.player.y = this.canvas.height-this.player.size/2;
+            this.player.x = this.canvas.width-100;
+            this.player.y = 75;
           }
           else if (index === 31){
             this.level = 10;
-            this.player.x = this.player.size/2;
+            this.player.x = 200;
             this.player.y = this.canvas.height-this.player.size/2;
           }
           else if (index === 32){
@@ -375,13 +376,13 @@ class Game{
           }
           else if (index === 33){
             this.level = 5;
-            this.player.x = this.player.size/2;
-            this.player.y = this.canvas.height-this.player.size/2;
+            this.player.x = this.canvas.width-200;
+            this.player.y = this.canvas.height-200-this.player.size/2;
           }
           else if (index === 34){
             this.level = 13;
-            this.player.x = this.player.size/2;
-            this.player.y = this.canvas.height-this.player.size/2;
+            this.player.x = this.canvas.width/2;
+            this.player.y = 75;
           }
           console.log(`Use the door ${index}`);
           console.log(this.level);
