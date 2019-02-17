@@ -29,6 +29,7 @@ const main = () => {
     const gameScreen = buildDom(`
       <section class="game-screen">
         <canvas></canvas>
+        <div class="floor"></div>
       </section>
     
     `);
