@@ -33,7 +33,6 @@ class Enemy{
   draw(){
     this.context.fillStyle = "red";
     this.context.fillRect(this.x-this.sizeX/2, this.y-this.sizeY/2, this.sizeX, this.sizeY);
-    console.log("Drawing");
   };
   
   setDirection(direction){

@@ -127,4 +127,18 @@ class Player{
       return false;
     }
   };
+
+  checkLittleSpike(spike){
+    const collideRight = this.x + this.size/2 >= spike.x - spike.sizeX/2;
+    const collideLeft = this.x - this.size/2 <= spike.x + spike.sizeX/2;
+    const collideTop = this.y - this.size/2 <=  spike.y + spike.sizeY/2;
+    const collideBottom = this.y + this.size/2 >= spike.y - spike.sizeY/2;
+
+    if (collideRight && collideLeft && collideTop && collideBottom){
+      return true;
+
+    } else{
+      return false;
+    }
+  };
 }
