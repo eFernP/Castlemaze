@@ -10,6 +10,7 @@ class Game{
     this.doors = [];
     this.platforms = [];
     this.spikes = [];
+    this.fallSpikes = [];
     this.littleSpikes = [];
     this.isGameOver = false;
     this.level = 1;
@@ -99,7 +100,7 @@ class Game{
     this.doors.push(new Door(10, this.canvas, 150, this.canvas.height-185));
     this.platforms.push(new Platform(10, this.canvas, this.canvas.width/2, this.canvas.height-85, 80, 20));
     this.platforms.push(new Platform(10, this.canvas, 150, this.canvas.height-140, 200, 20));
-    this.enemies.push(new Enemy(10, this.canvas, this.canvas.width/2-50, this.canvas.height-30, 2, 100));
+    this.enemies.push(new Enemy(10, this.canvas, this.canvas.width/2, this.canvas.height-30, 2, 150));
 
     this.doors.push(new Door(11, this.canvas, 100, this.canvas.height-35));
     this.doors.push(new Door(11, this.canvas, this.canvas.width-200, this.canvas.height-35));
@@ -132,8 +133,17 @@ class Game{
 
     this.player = new Player(this.canvas);
     this.key = new Key(12, this.player, this.canvas,  this.canvas.width/2-300, this.canvas.height-410);
+
+    let timer = 0;
     const loop = () =>{
       if (!this.isGameOver){
+        if (timer === 75){
+            this.fallSpikes.push(new FallSpike(1, this.canvas, this.canvas.width/2, 300));
+            console.log("Create spike");
+            timer = 0;
+        }
+        timer++;
+
         this.checkAllCollisions();
         this.clearCanvas();
         this.updateCanvas();
@@ -157,6 +167,12 @@ class Game{
     });
 
     this.spikes.forEach((s)=> {
+      if (s.level === this.level){
+        s.update();
+      }
+    });
+
+    this.fallSpikes.forEach((s)=> {
       if (s.level === this.level){
         s.update();
       }
@@ -203,6 +219,16 @@ class Game{
     if (this.key.level == this.level){
       this.key.draw();
     }
+
+    this.fallSpikes.forEach((s, index)=> {
+      if (s.level === this.level){
+        s.draw();
+
+        if(s.y > this.canvas.height){
+          this.fallSpikes.splice(index, 1);
+        }
+      }
+    });
     
     this.player.draw();
   }
@@ -445,6 +471,16 @@ class Game{
         }
       }
     });
+
+    this.fallSpikes.forEach((s)=>{
+      if (s.level === this.level){
+        if(this.player.checkSpike(s)){
+          this.isGameOver = true;
+          this.onGameOver();
+        }
+      }
+    });
+
 
     if (this.key.level === this.level){
       if (this.player.checkKey(this.key)){
