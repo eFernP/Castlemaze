@@ -14,10 +14,11 @@ body {
 
 
 body {
-  color: #111;
+  color: rgb(240, 228, 234);
   font-family: Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 147%;
+  background-color: rgb(68, 45, 75);
 }
 
 p {
@@ -37,7 +38,7 @@ p {
 }
 
 .button {
-  background-color: rgb(69, 34, 97);
+  background-color: rgb(148, 17, 141);
   color: #fff;
   padding: 20px;
   font-size: 20px;

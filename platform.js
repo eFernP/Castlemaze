@@ -21,8 +21,8 @@ class Platform{
     // this.context.fillStyle = "#111";
     // this.context.fillRect(this.x-this.sizeX/2, this.y-this.sizeY/2, this.sizeX, this.sizeY);
     const img = new Image();
-    img.src = "img/platform.jpg";
-    this.context.drawImage(img, this.x-this.sizeX/2, this.y-this.sizeY/2, this.sizeX, this.sizeY);
+    img.src = "img/platform.png";
+    this.context.drawImage(img, 0, 0, this.sizeX, this.sizeY, this.x-this.sizeX/2, this.y-this.sizeY/2, this.sizeX, this.sizeY);
   };
 
 
