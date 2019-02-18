@@ -7,7 +7,7 @@ class Enemy{
     this.canvas = canvas;
     this.context = this.canvas.getContext('2d');
     this.sizeX = 50;
-    this.sizeY = 60;
+    this.sizeY = 55;
     this.x = x;
     this.y = y;
     this.direction = 1;
@@ -31,8 +31,17 @@ class Enemy{
   }
   
   draw(){
-    this.context.fillStyle = "red";
-    this.context.fillRect(this.x-this.sizeX/2, this.y-this.sizeY/2, this.sizeX, this.sizeY);
+    // this.context.fillStyle = "red";
+    // this.context.fillRect(this.x-this.sizeX/2, this.y-this.sizeY/2, this.sizeX, this.sizeY);
+
+    const img = new Image();
+    if(this.direction == -1){
+      img.src = "img/enemy-left.png";
+    }else if (this.direction == 1){
+      img.src = "img/enemy-right.png";
+    }
+    
+    this.context.drawImage(img, this.x-this.sizeX/2, this.y-this.sizeY/2, this.sizeX, this.sizeY);
   };
   
   setDirection(direction){

@@ -4,7 +4,7 @@ class LittleSpike{
     this.level = level;
     this.canvas = canvas;
     this.context = this.canvas.getContext('2d');
-    this.sizeX = 15;
+    this.sizeX = 10;
     this.sizeY = 20;
     this.x = x;
     this.y = y;
@@ -12,11 +12,11 @@ class LittleSpike{
   };
   
   draw(){
-    this.context.fillStyle = "gray";
-    this.context.fillRect(this.x-this.sizeX/2, this.y-this.sizeY/2, this.sizeX, this.sizeY);
-    console.log("Drawing");
+    // this.context.fillStyle = "gray";
+    // this.context.fillRect(this.x-this.sizeX/2, this.y-this.sizeY/2, this.sizeX, this.sizeY);
+    const img = new Image();
+    img.src = "img/little-spike.png";
+    this.context.drawImage(img, this.x-this.sizeX/2, this.y-this.sizeY/2, this.sizeX, this.sizeY);
   };
-
-
 
 }

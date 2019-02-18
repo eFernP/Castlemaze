@@ -5,6 +5,7 @@ class Game{
     this.canvas = canvas;
     this.context = this.canvas.getContext('2d');
     this.player;
+    this.key;
     this.enemies = [];
     this.doors = [];
     this.platforms = [];
@@ -118,6 +119,7 @@ class Game{
     this.spikes.push(new Spike(12, this.canvas, this.canvas.width/2+50, this.canvas.height+25, 'bottom'));
     this.spikes.push(new Spike(12, this.canvas, this.canvas.width/2-50, this.canvas.height+25, 'bottom'));
     this.spikes.push(new Spike(12, this.canvas, this.canvas.width/2, this.canvas.height+25, 'bottom'));
+    
 
     this.doors.push(new Door(13, this.canvas, this.canvas.width/2, 50));
     this.spikes.push(new Spike(13, this.canvas, this.canvas.width/2, this.canvas.height+25, 'bottom'));
@@ -129,6 +131,7 @@ class Game{
     this.spikes.push(new Spike(13, this.canvas, this.canvas.width/2-150, this.canvas.height+25, 'bottom'));
 
     this.player = new Player(this.canvas);
+    this.key = new Key(12, this.player, this.canvas,  this.canvas.width/2-300, this.canvas.height-410);
     const loop = () =>{
       if (!this.isGameOver){
         this.checkAllCollisions();
@@ -168,9 +171,13 @@ class Game{
       }
     });
 
-    this.doors.forEach((d)=> {
+    this.doors.forEach((d, index)=> {
       if (d.level === this.level){
-        d.draw();
+        if (index === 32){
+          d.drawLockedDoor();
+        } else{
+          d.draw();
+        }
       }
     });
 
@@ -193,6 +200,10 @@ class Game{
       }
     });
 
+    if (this.key.level == this.level){
+      this.key.draw();
+    }
+    
     this.player.draw();
   }
 
@@ -434,6 +445,12 @@ class Game{
         }
       }
     });
+
+    if (this.key.level === this.level){
+      if (this.player.checkKey(this.key)){
+        this.player.hasKey = true;
+      }
+    }
   };
 
   winCallback(callback){

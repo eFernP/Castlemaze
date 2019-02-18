@@ -15,10 +15,14 @@ class Platform{
   ;}
 
   draw(){
-    // let img = new Image();
-    // img.src = "image/floor.png";
-    this.context.fillStyle = "#111";
-    this.context.fillRect(this.x-this.sizeX/2, this.y-this.sizeY/2, this.sizeX, this.sizeY);
+    
+    //img.onload = function (){};
+    
+    // this.context.fillStyle = "#111";
+    // this.context.fillRect(this.x-this.sizeX/2, this.y-this.sizeY/2, this.sizeX, this.sizeY);
+    const img = new Image();
+    img.src = "img/platform.jpg";
+    this.context.drawImage(img, this.x-this.sizeX/2, this.y-this.sizeY/2, this.sizeX, this.sizeY);
   };
 
 

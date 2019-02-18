@@ -12,6 +12,7 @@ class Player{
     this.jumpSpeed = 0;
     this.isColliding = true;
     this.gravity = 0.5;
+    this.hasKey = false;
   };
 
   update(){
@@ -24,8 +25,11 @@ class Player{
   }
 
   draw(){
-    this.context.fillStyle = "blue";
-    this.context.fillRect(this.x-this.size/2, this.y-this.size/2, this.size, this.size);
+    // this.context.fillStyle = "blue";
+    // this.context.fillRect(this.x-this.size/2, this.y-this.size/2, this.size, this.size);
+    const img = new Image();
+    img.src = "img/player-right.png";
+    this.context.drawImage(img, this.x-this.size/2, this.y-this.size/2, this.size, this.size);
   };
 
   setDirection(direction){
@@ -141,4 +145,18 @@ class Player{
       return false;
     }
   };
+
+  checkKey(key){
+    const collideRight = this.x + this.size/2 >= key.x - key.sizeX/2;
+    const collideLeft = this.x - this.size/2 <= key.x + key.sizeX/2;
+    const collideTop = this.y - this.size/2 <=  key.y + key.sizeY/2;
+    const collideBottom = this.y + this.size/2 >= key.y - key.sizeY/2;
+
+    if (collideRight && collideLeft && collideTop && collideBottom){
+      return true;
+
+    } else{
+      return false;
+    }
+  }
 }
