@@ -29,7 +29,7 @@ const main = () => {
     const gameScreen = buildDom(`
       <section class="game-screen">
         <canvas></canvas>
-        <div class="floor"></div>
+        <div class="floor"> <div id="kids-text">Kids: 0/3</div></div>
       </section>
     
     `);

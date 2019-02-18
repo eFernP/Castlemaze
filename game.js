@@ -14,7 +14,7 @@ class Game{
     this.littleSpikes = [];
     this.kids = [];
     this.isGameOver = false;
-    this.level = 10;
+    this.level = 11;
     this.timer = 0;
    
   };
@@ -101,8 +101,8 @@ class Game{
     this.platforms.push(new Platform(8, this.canvas, this.canvas.width-100, this.canvas.height-140, 200, 20));
     this.platforms.push(new Platform(8, this.canvas, 100, this.canvas.height-140, 200, 20));
     this.platforms.push(new Platform(8, this.canvas, this.canvas.width/2, this.canvas.height-90, 80, 20));
-    this.enemies.push(new Enemy(8, this.canvas, 200, this.canvas.height-30, 1, 70));
-    this.enemies.push(new Enemy(8, this.canvas, this.canvas.width-200, this.canvas.height-30, 1, 70));
+    //this.enemies.push(new Enemy(8, this.canvas, 200, this.canvas.height-30, 1, 70));
+    //this.enemies.push(new Enemy(8, this.canvas, this.canvas.width-200, this.canvas.height-30, 1, 70));
     this.kids.push(new Kid(8, this.canvas, 50, this.canvas.height-15));
 
     this.doors.push(new Door(9, this.canvas, 150, this.canvas.height-35));
@@ -155,6 +155,10 @@ class Game{
 
     this.player = new Player(this.canvas);
     this.key = new Key(12, this.player, this.canvas,  this.canvas.width/2-300, this.canvas.height-410);
+
+    // this.context.font = '12px Arial';
+    // this.context.fillStyle = 'black';
+    // this.context.strokeText('Hello World',10,100);
 
     const loop = () =>{
       if (!this.isGameOver){
@@ -395,9 +399,12 @@ class Game{
             this.player.y = this.canvas.height-this.player.size/2;
           }
           else if (index === 9){
-            this.level = 13;
-            this.player.x = this.canvas.width/2;
-            this.player.y = 75;
+            this.level = 7;
+            this.player.x = this.canvas.width/2+100;
+            this.player.y = this.canvas.height-120;
+            // this.level = 13;
+            // this.player.x = this.canvas.width/2;
+            // this.player.y = 75;
           }
           else if (index === 10){
             this.level = 1;
@@ -440,9 +447,12 @@ class Game{
             this.player.y = this.canvas.height-this.player.size/2;
           }
           else if (index === 18){
-            this.level = 8;
-            this.player.x = 125;
-            this.player.y = this.canvas.height-150-this.player.size/2;
+            this.level = 13;
+            this.player.x = this.canvas.width/2;
+            this.player.y = 75;
+            // this.level = 8;
+            // this.player.x = 125;
+            // this.player.y = this.canvas.height-150-this.player.size/2;
           }
           else if (index === 19){
             this.level = 6;
@@ -455,14 +465,18 @@ class Game{
             this.player.y = this.canvas.height-this.player.size/2;
           }
           else if (index === 21){
+            this.level = 3;
+            this.player.x = 150;
+            this.player.y = this.canvas.height-this.player.size/2;
+            // 
+          }
+          else if (index === 22){
             this.level = 13;
             this.player.x = this.canvas.width/2;
             this.player.y = 75;
-          }
-          else if (index === 22){
-            this.level = 7;
-            this.player.x = 150;
-            this.player.y = this.canvas.height-this.player.size/2;
+            // this.level = 7;
+            // this.player.x = 150;
+            // this.player.y = this.canvas.height-this.player.size/2;
           }
           else if (index === 23){
             this.level = 9;
@@ -510,8 +524,10 @@ class Game{
             this.player.y = this.canvas.height-this.player.size/2;
           }
           else if (index === 32){
-            this.isGameOver = true;
-            this.onWin();
+            if(this.player.hasKey === true){
+              this.isGameOver = true;
+              this.onWin();
+            }
           }
           else if (index === 33){
             this.level = 5;
@@ -566,9 +582,13 @@ class Game{
     });
 
     this.kids.forEach((k, index)=> {
-      if (this.player.checkObject(k)){
-        this.player.numberKids ++;
-        this.kids.splice(index, 1);
+      if (k.level === this.level){
+        if (this.player.checkObject(k)){
+          this.player.numberKids ++;
+          this.kids.splice(index, 1);
+          let kidsText = document.getElementById('kids-text');
+          kidsText.innerText = `Kids: ${this.player.numberKids}/3`;
+        }
       }
     });
 
