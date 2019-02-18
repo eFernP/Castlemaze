@@ -18,7 +18,7 @@ class Key{
 
     if (this.player.hasKey === false){
       const img = new Image();
-      img.src = "img/key.png";
+      img.src = "img/key2.png";
       this.context.drawImage(img, this.x-this.sizeX/2, this.y-this.sizeY/2, this.sizeX, this.sizeY);
     }
   };

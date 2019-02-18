@@ -237,7 +237,7 @@ class Game{
     this.doors.forEach((p, index)=>{
       if (p.level === this.level){
         if (this.player.checkDoor(p)){
-          
+          this.player.isColliding = true;
           if (index === 0){
             this.level = 7;
             this.player.x = this.canvas.width/2-100;

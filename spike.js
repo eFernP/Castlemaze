@@ -37,7 +37,7 @@ class Spike{
     // this.context.fillRect(this.x-this.sizeX/2, this.y-this.sizeY/2, this.sizeX, this.sizeY);
 
     const img = new Image();
-    img.src = "img/spike.png";
+    img.src = "img/spike2.png";
     this.context.drawImage(img, this.x-this.sizeX/2, this.y-this.sizeY/2, this.sizeX, this.sizeY);
     
   };
