@@ -12,8 +12,9 @@ class Game{
     this.spikes = [];
     this.fallSpikes = [];
     this.littleSpikes = [];
+    this.kids = [];
     this.isGameOver = false;
-    this.level = 9;
+    this.level = 10;
     this.timer = 0;
    
   };
@@ -25,6 +26,7 @@ class Game{
     this.doors.push(new Door(1, this.canvas, this.canvas.width-150, this.canvas.height-235));
     this.platforms.push(new Platform(1, this.canvas, this.canvas.width/2, this.canvas.height-85, 150, 20));
     this.platforms.push(new Platform(1, this.canvas, this.canvas.width-150, this.canvas.height-190, 200, 20));
+    
 
     this.doors.push(new Door(2, this.canvas, 150, this.canvas.height-35));
     this.doors.push(new Door(2, this.canvas, this.canvas.width-200, this.canvas.height-35));
@@ -84,19 +86,15 @@ class Game{
     this.littleSpikes.push(new LittleSpike(6, this.canvas, 100, this.canvas.height-10));
     this.littleSpikes.push(new LittleSpike(6, this.canvas, 75, this.canvas.height-10));
     this.littleSpikes.push(new LittleSpike(6, this.canvas, 50, this.canvas.height-10));
+    this.kids.push(new Kid(6, this.canvas, 75, this.canvas.height-230));
 
     this.doors.push(new Door(7, this.canvas, 100, this.canvas.height-35));
     this.doors.push(new Door(7, this.canvas, this.canvas.width-100, this.canvas.height-35));
     this.doors.push(new Door(7, this.canvas, this.canvas.width/2-50, this.canvas.height-135));
     this.doors.push(new Door(7, this.canvas, this.canvas.width/2+50, this.canvas.height-135));
     this.platforms.push(new Platform(7, this.canvas, this.canvas.width/2, this.canvas.height-90, 300, 20));
-    this.spikes.push(new Spike(7, this.canvas, this.canvas.width/2-100, this.canvas.height+25, 'bottom'));
-    this.spikes.push(new Spike(7, this.canvas, this.canvas.width/2+100, this.canvas.height+25, 'bottom'));
-    this.spikes.push(new Spike(7, this.canvas, this.canvas.width/2-125, this.canvas.height+25, 'bottom'));
-    this.spikes.push(new Spike(7, this.canvas, this.canvas.width/2+125, this.canvas.height+25, 'bottom'));
-    this.spikes.push(new Spike(7, this.canvas, this.canvas.width/2-150, this.canvas.height+25, 'bottom'));
-    this.spikes.push(new Spike(7, this.canvas, this.canvas.width/2+150, this.canvas.height+25, 'bottom'));
-
+    this.kids.push(new Kid(7, this.canvas, this.canvas.width/2, this.canvas.height-15));
+    
     this.doors.push(new Door(8, this.canvas, 75, this.canvas.height-185));
     this.doors.push(new Door(8, this.canvas, this.canvas.width-75, this.canvas.height-185));
     this.doors.push(new Door(8, this.canvas, this.canvas.width/2, this.canvas.height-35));
@@ -105,6 +103,7 @@ class Game{
     this.platforms.push(new Platform(8, this.canvas, this.canvas.width/2, this.canvas.height-90, 80, 20));
     this.enemies.push(new Enemy(8, this.canvas, 200, this.canvas.height-30, 1, 70));
     this.enemies.push(new Enemy(8, this.canvas, this.canvas.width-200, this.canvas.height-30, 1, 70));
+    this.kids.push(new Kid(8, this.canvas, 50, this.canvas.height-15));
 
     this.doors.push(new Door(9, this.canvas, 150, this.canvas.height-35));
     this.doors.push(new Door(9, this.canvas, this.canvas.width-150, this.canvas.height-35));
@@ -159,6 +158,14 @@ class Game{
 
     const loop = () =>{
       if (!this.isGameOver){
+         
+        if (this.timer === 50){
+          if (this.level ===7){
+            this.fallSpikes.push(new FallSpike(7, this.canvas, this.canvas.width/2-135, this.canvas.height-70, 5));
+            this.fallSpikes.push(new FallSpike(7, this.canvas, this.canvas.width/2+135, this.canvas.height-70, 5));
+          }
+        }
+
         if (this.timer === 75){
           if (this.level ===2){
             this.fallSpikes.push(new FallSpike(2, this.canvas, this.canvas.width/2, 265, 5));
@@ -168,6 +175,11 @@ class Game{
           if (this.level ===3){
             this.fallSpikes.push(new FallSpike(3, this.canvas, this.canvas.width-200, this.canvas.height-105, 5));
             this.timer = 0;
+          }
+
+          if (this.level ===7){
+            this.fallSpikes.push(new FallSpike(7, this.canvas, this.canvas.width/2-110, this.canvas.height-70, 5));
+            this.fallSpikes.push(new FallSpike(7, this.canvas, this.canvas.width/2+110, this.canvas.height-70, 5));
           }
 
           if (this.level ===8){
@@ -188,6 +200,14 @@ class Game{
           
         }
 
+        if (this.timer === 100){
+          if (this.level ===7){
+            this.fallSpikes.push(new FallSpike(7, this.canvas, this.canvas.width/2-75, this.canvas.height-70, 5));
+            this.fallSpikes.push(new FallSpike(7, this.canvas, this.canvas.width/2+75, this.canvas.height-70, 5));
+            this.timer = 0;
+          }
+        }
+
         if(this.timer ===150){
           if (this.level ===5){
             this.fallSpikes.push(new FallSpike(5, this.canvas, 175, 0, 2));
@@ -195,6 +215,7 @@ class Game{
           }
           
         }
+
         this.timer++;
 
         this.checkAllCollisions();
@@ -266,6 +287,12 @@ class Game{
     this.littleSpikes.forEach((s)=> {
       if (s.level === this.level){
         s.draw();
+      }
+    });
+
+    this.kids.forEach((k)=> {
+      if (k.level === this.level){
+        k.draw();
       }
     });
 
@@ -538,9 +565,16 @@ class Game{
       }
     });
 
+    this.kids.forEach((k, index)=> {
+      if (this.player.checkObject(k)){
+        this.player.numberKids ++;
+        this.kids.splice(index, 1);
+      }
+    });
+
 
     if (this.key.level === this.level){
-      if (this.player.checkKey(this.key)){
+      if (this.player.checkObject(this.key)){
         this.player.hasKey = true;
       }
     }

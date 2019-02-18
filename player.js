@@ -13,6 +13,7 @@ class Player{
     this.isColliding = true;
     this.gravity = 0.5;
     this.hasKey = false;
+    this.numberKids = 0;
   };
 
   update(){
@@ -146,11 +147,11 @@ class Player{
     }
   };
 
-  checkKey(key){
-    const collideRight = this.x + this.size/2 >= key.x - key.sizeX/2;
-    const collideLeft = this.x - this.size/2 <= key.x + key.sizeX/2;
-    const collideTop = this.y - this.size/2 <=  key.y + key.sizeY/2;
-    const collideBottom = this.y + this.size/2 >= key.y - key.sizeY/2;
+  checkObject(k){
+    const collideRight = this.x + this.size/2 >= k.x - k.sizeX/2;
+    const collideLeft = this.x - this.size/2 <= k.x + k.sizeX/2;
+    const collideTop = this.y - this.size/2 <=  k.y + k.sizeY/2;
+    const collideBottom = this.y + this.size/2 >= k.y - k.sizeY/2;
 
     if (collideRight && collideLeft && collideTop && collideBottom){
       return true;
