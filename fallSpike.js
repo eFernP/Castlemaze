@@ -1,7 +1,7 @@
 'use strict';
 
 class FallSpike {
-    constructor(level, canvas, x, y){
+    constructor(level, canvas, x, y, speed){
       this.level = level;
       this.canvas = canvas;
       this.context = this.canvas.getContext('2d');
@@ -9,7 +9,7 @@ class FallSpike {
       this.y = y;
       this.sizeX = 10;
       this.sizeY = 20;
-      this.speed = 5;
+      this.speed = speed;
       this.direction = 1;
       this.ctx = this.canvas.getContext('2d');
   };
