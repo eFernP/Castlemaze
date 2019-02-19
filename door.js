@@ -6,7 +6,7 @@ class Door{
     this.level = level;
     this.canvas = canvas;
     this.context = this.canvas.getContext('2d');
-    this.sizeX =  50;
+    this.sizeX =  45;
     this.sizeY = 70;
     this.x = x;
     this.y = y;
@@ -23,8 +23,9 @@ class Door{
   };
 
   drawLockedDoor(){
-    this.context.fillStyle = "red";
-    this.context.fillRect(this.x-this.sizeX/2, this.y-this.sizeY/2, this.sizeX, this.sizeY);
+    const img = new Image();
+    img.src = "img/locked-door.png";
+    this.context.drawImage(img, this.x-this.sizeX/2, this.y-this.sizeY/2, this.sizeX, this.sizeY);
   };
 
 }

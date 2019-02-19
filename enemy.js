@@ -6,7 +6,7 @@ class Enemy{
     this.level = level;
     this.canvas = canvas;
     this.context = this.canvas.getContext('2d');
-    this.sizeX = 50;
+    this.sizeX = 45;
     this.sizeY = 55;
     this.x = x;
     this.y = y;

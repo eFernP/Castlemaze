@@ -6,7 +6,7 @@ class Key{
     this.canvas = canvas;
     this.context = this.canvas.getContext('2d');
     this.sizeX = 30;
-    this.sizeY = 30;
+    this.sizeY = 29;
     this.x = x;
     this.y = y;
     
