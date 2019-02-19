@@ -10,15 +10,14 @@ const main = () => {
          
 
   const buildDom = (html) => {
-    const main = document.querySelector('body');
+    const main = document.querySelector('main');
     main.innerHTML = html; 
     return main;
   };
 
   const buildSplashScreen = () => {
     const splashScreen = buildDom(`
-    <div class=menu-background>
-    <main class="container">
+    
     <section class="splash-screen">
     <div class="text-splash">
     <h1 class="title-splash">Castlemaze</h1>
@@ -27,8 +26,7 @@ const main = () => {
     <button class="button" id="start-button">Start</button>
     <button class="button" id="instructions-button">Instructions</button>
     </section>
-    </main>
-    </div>`);
+    `);
 
     const startButton = document.getElementById('start-button');
     startButton.addEventListener('click', buildGameScreen);
@@ -39,8 +37,7 @@ const main = () => {
 
   const buildInstructionsScreen = () => {
     const splashScreen = buildDom(`
-    <div class=menu-background>
-    <main class="container">
+   
     <section class="splash-screen">
     <div class="text-splash">
     <h1 class="title-splash">Castlemaze</h1>
@@ -52,8 +49,7 @@ const main = () => {
     </div>
     <button class="button">Back</button>
     </section>
-    </main>
-    </div>
+   
    `);
 
     const startButton = document.querySelector('button');
@@ -63,8 +59,6 @@ const main = () => {
 
   const buildGameScreen = () => {
     const gameScreen = buildDom(`
-    
-    <main class="container">
       <section class="game-screen">
         <div class="interface">
           <div id="kids-text">Kids: 0/3</div> 
@@ -73,8 +67,6 @@ const main = () => {
         <canvas></canvas>
         <div class="floor"> </div>
       </section>
-      </main>
-    
     `);
 
     const quitButton = document.querySelector('button');
@@ -138,15 +130,13 @@ const main = () => {
 
   const buildGameOverScreen = () => {
     const splashScreen = buildDom(`
-    <div class=menu-background>
-    <main class="container">
     <section class="game-over-screen">
     <div class="text-game-over">
-    <h1 class="title-splash">YOU DIED</h1>
+    <h1 class="title-splash">You died</h1>
     <div id=final-kids></div>
     </div>
     <button class="button">Try again</button>
-    </section></main></div>`);
+    </section>`);
 
     game.isGameOver = true;
 
@@ -167,16 +157,14 @@ const main = () => {
 
   const buildWinScreen = () => {
     const splashScreen = buildDom(`
-    <div class=menu-background>
-    <main class="container">
     <section class="win-screen">
     <div class="text-win">
-    <h1 class="title-splash">YOU ARE OUT!</h1>
-    <div id=final-kids></div>
-    </div>
+    <h1 class="title-splash">You are out!</h1>
+    <p><div id=final-kids></div>
+    </div></p>
     <button class="button">Restart</button>
     </section>
-    </main></div>`);
+    </main>`);
 
     const finalKids = document.getElementById('final-kids');
     if (game.player.numberKids === 0){

@@ -19,7 +19,7 @@ body {
 body {
   color: rgb(240, 228, 234);
   font-family: Prata, Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   line-height: 147%;
   background-color: rgb(68, 45, 75);
  
@@ -45,9 +45,9 @@ h2{
 .menu-background{
   margin: 5% 0;
   width: 100%;
-  background-image: url("img/background-web.png");
+  /* background-image: url("img/background-web.png"); */
   background-size: cover;
-  padding-bottom: 50px;
+ 
 }
 
 p {
@@ -118,14 +118,17 @@ p {
 .game-over-screen{
   display: grid;
   justify-items: center;
+  text-align: center;
  
 }
 
 .win-screen{
   display: grid;
   justify-items: center;
+  text-align: center;
  
 }
+
 
 .text-splash{
   margin-top: 100px;
@@ -175,7 +178,8 @@ canvas{
   justify-content: space-between;
   width: 100%;
   align-items: center;
-  margin: 2% 0;
+  margin-top: 2%;
+  font-size: 16px;
 }
 
 .interface button{
