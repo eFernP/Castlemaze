@@ -239,12 +239,10 @@ class Game{
 
   };
 
-
-
-
+  
   updateCanvas(){
     this.player.update();
-
+    
     this.enemies.forEach((e)=> {
       if (e.level === this.level){
         e.update();
@@ -533,7 +531,7 @@ class Game{
           else if (index === 32){
             if(this.player.hasKey === true){
               this.isGameOver = true;
-              this.onWin();
+              this.onWin(this.player.numberKids);
             }
           }
           else if (index === 33){
@@ -556,7 +554,7 @@ class Game{
       if (e.level === this.level){
         if(this.player.checkEnemy(e)){
           this.isGameOver = true;
-          this.onGameOver();
+          this.onGameOver(this.player.numberKids);
         }
       }
     });
@@ -565,7 +563,7 @@ class Game{
       if (s.level === this.level){
         if(this.player.checkSpike(s)){
           this.isGameOver = true;
-          this.onGameOver();
+          this.onGameOver(this.player.numberKids);
         }
       }
     });
@@ -574,7 +572,7 @@ class Game{
       if (s.level === this.level){
         if(this.player.checkLittleSpike(s)){
           this.isGameOver = true;
-          this.onGameOver();
+          this.onGameOver(this.player.numberKids);
         }
       }
     });
@@ -583,7 +581,7 @@ class Game{
       if (s.level === this.level){
         if(this.player.checkSpike(s)){
           this.isGameOver = true;
-          this.onGameOver();
+          this.onGameOver(this.player.numberKids);
         }
       }
     });

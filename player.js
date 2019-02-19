@@ -47,7 +47,8 @@ class Player{
     // }
   
     this.context.drawImage(img, this.x-this.size/2, this.y-this.size/2, this.size, this.size);
-  
+    // this.context.fillStyle = "blue";
+    // this.context.fillRect(this.x-this.size/2, this.y-this.size/2, this.size, this.size);
   
   };
 
