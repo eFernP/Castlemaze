@@ -14,7 +14,7 @@ class Game{
     this.littleSpikes = [];
     this.kids = [];
     this.isGameOver = false;
-    this.level = 5;
+    this.level = 1;
     this.timer = 0;
    
   };

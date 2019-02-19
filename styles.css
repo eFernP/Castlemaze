@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+@import url('https://fonts.googleapis.com/css?family=Alice');
+@import url('https://fonts.googleapis.com/css?family=Prata');
 /* ---- reset ---- */
 
 html {
@@ -15,10 +18,36 @@ body {
 
 body {
   color: rgb(240, 228, 234);
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: Prata, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 147%;
   background-color: rgb(68, 45, 75);
+ 
+  
+  
+}
+
+h1{
+  font-family: Prata, Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+h2{
+  font-family: Prata, Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size:2em;
+
+  font-style: normal;
+}
+
+
+.menu-background{
+  margin: 5% 0;
+  width: 100%;
+  background-image: url("img/background-web.png");
+  background-size: cover;
+  padding-bottom: 50px;
 }
 
 p {
@@ -38,14 +67,25 @@ p {
 }
 
 .button {
-  background-color: rgb(148, 17, 141);
+  background-color: rgb(102, 0, 97);
+  background-image: linear-gradient(rgb(168, 66, 163), rgb(102, 0, 97));
   color: #fff;
-  padding: 20px;
+  padding: 15px 20px;
   font-size: 20px;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  width: 250px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition-duration: 2s;
+  font-family: Prata, Helvetica, Arial, sans-serif;
 }
 
+
+.button:hover{
+  margin-left: 20px;
+  background-image: linear-gradient(rgb(194, 85, 188), rgb(122, 8, 117));
+}
 
 .splash-screen{
   display: grid;
@@ -53,12 +93,25 @@ p {
  
 }
 
+
+.splash-screen ul{
+  display: grid;
+  justify-items: left;
+  font-size: 18px;
+ 
+}
+
+.splash-screen li{
+  font-size: 18px;
+  margin: 10px 0;
+}
+
 .game-screen{
   display: grid;
   justify-items: center;
-  margin-top: 2%;
   width: 100%;
   height: 500px;
+  
 
 }
 
@@ -75,16 +128,16 @@ p {
 }
 
 .text-splash{
-  margin: 100px 0;
+  margin-top: 100px;
+  margin-bottom: 50px;
+  text-align: center;
 }
 
 .title-splash{
-  text-align: center;
   font-size: 60px;
 }
 
 .subtitle-splash{
-  text-align : center;
   font-size: 30px;
 }
 
@@ -97,6 +150,9 @@ canvas{
   background-image: url("img/backgroundDef.png");
   background-size: cover;
   background-position: center;
+  border-left: 2px solid #fff;
+  border-right: 2px solid #fff;
+  border-top: 2px solid #fff;
 }
 
 .floor{
@@ -108,6 +164,9 @@ canvas{
   margin: 0;
   padding: 20px;
   color: white;
+  border-left: 2px solid #fff;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
 }
 
 .interface{
@@ -116,12 +175,21 @@ canvas{
   justify-content: space-between;
   width: 100%;
   align-items: center;
-  margin-bottom: 2%;
+  margin: 2% 0;
 }
 
 .interface button{
   
   padding: 10px 20px;
   font-size: 18px;
+  width: 100px;
+  box-shadow: none;
+  background-color: rgb(121, 12, 115);
+  transition-duration: 1s;
+
+}
+
+.interface button:hover{
+  background-color: rgb(175, 16, 167);
 
 }

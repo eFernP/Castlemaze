@@ -10,27 +10,61 @@ const main = () => {
          
 
   const buildDom = (html) => {
-    const main = document.querySelector('main');
+    const main = document.querySelector('body');
     main.innerHTML = html; 
     return main;
   };
 
   const buildSplashScreen = () => {
     const splashScreen = buildDom(`
+    <div class=menu-background>
+    <main class="container">
     <section class="splash-screen">
     <div class="text-splash">
     <h1 class="title-splash">Castlemaze</h1>
-    <h2 class="subtitle-splash">Exit the castle alive!</h2>
+    <h2 class="subtitle-splash">Save the kids and exit the castle alive!</h2>
     </div>
-    <button class="button">Start</button>
-    </section>`);
+    <button class="button" id="start-button">Start</button>
+    <button class="button" id="instructions-button">Instructions</button>
+    </section>
+    </main>
+    </div>`);
+
+    const startButton = document.getElementById('start-button');
+    startButton.addEventListener('click', buildGameScreen);
+
+    const instructionsButton = document.getElementById('instructions-button');
+    instructionsButton.addEventListener('click', buildInstructionsScreen);
+  };
+
+  const buildInstructionsScreen = () => {
+    const splashScreen = buildDom(`
+    <div class=menu-background>
+    <main class="container">
+    <section class="splash-screen">
+    <div class="text-splash">
+    <h1 class="title-splash">Castlemaze</h1>
+    <ul>
+    <li>To move use the arrows left and right</li>
+    <li>To jump use the spacebar</li>
+    <li>Have fun!</li>
+    </ul>
+    </div>
+    <button class="button">Back</button>
+    </section>
+    </main>
+    </div>
+   `);
 
     const startButton = document.querySelector('button');
-    startButton.addEventListener('click', buildGameScreen);
+    startButton.addEventListener('click', buildSplashScreen);
+
   };
 
   const buildGameScreen = () => {
     const gameScreen = buildDom(`
+    
+    <main class="container">
       <section class="game-screen">
         <div class="interface">
           <div id="kids-text">Kids: 0/3</div> 
@@ -39,11 +73,12 @@ const main = () => {
         <canvas></canvas>
         <div class="floor"> </div>
       </section>
+      </main>
     
     `);
 
-    const restartButton = document.querySelector('button');
-    restartButton.addEventListener('click', buildGameOverScreen);
+    const quitButton = document.querySelector('button');
+    quitButton.addEventListener('click', buildGameOverScreen);
 
     const width = document.querySelector('.game-screen').offsetWidth;
     const height = document.querySelector('.game-screen').offsetHeight;
@@ -103,20 +138,24 @@ const main = () => {
 
   const buildGameOverScreen = () => {
     const splashScreen = buildDom(`
+    <div class=menu-background>
+    <main class="container">
     <section class="game-over-screen">
     <div class="text-game-over">
     <h1 class="title-splash">YOU DIED</h1>
     <div id=final-kids></div>
     </div>
     <button class="button">Try again</button>
-    </section>`);
+    </section></main></div>`);
 
     game.isGameOver = true;
 
     const finalKids = document.getElementById('final-kids');
     if (game.player.numberKids === 0){
       finalKids.innerText = "At least any kid died with you.";
-    } else if (game.player.numberKids > 0){
+    } else if (game.player.numberKids === 1){
+      finalKids.innerText = `And ${game.player.numberKids} kid died with you!`;
+    }else if (game.player.numberKids > 1){
       finalKids.innerText = `And ${game.player.numberKids} kids died with you!`;
     }
 
@@ -128,18 +167,23 @@ const main = () => {
 
   const buildWinScreen = () => {
     const splashScreen = buildDom(`
+    <div class=menu-background>
+    <main class="container">
     <section class="win-screen">
     <div class="text-win">
-    <h1 class="title-splash">YOU WIN</h1>
+    <h1 class="title-splash">YOU ARE OUT!</h1>
     <div id=final-kids></div>
     </div>
     <button class="button">Restart</button>
-    </section>`);
+    </section>
+    </main></div>`);
 
     const finalKids = document.getElementById('final-kids');
     if (game.player.numberKids === 0){
       finalKids.innerText = "You didn't save any kid. Monster!";
-    } else if (game.player.numberKids > 0){
+    } else if (game.player.numberKids === 1){
+      finalKids.innerText = `You saved ${game.player.numberKids} kid.`;
+    }else if (game.player.numberKids === 2){
       finalKids.innerText = `You saved ${game.player.numberKids} kids.`;
     } else if (game.player.numberKids === 3){
       finalKids.innerText = `You saved all the kids. Congratulations!`;

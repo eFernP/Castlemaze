@@ -5,7 +5,7 @@ class Player{
     this.canvas = canvas;
     this.context = this.canvas.getContext('2d');
     this.size = 40;
-    this.x = this.canvas.width;
+    this.x = this.canvas.width/2;
     this.y = this.canvas.height-(this.size/2);
     this.direction = 0;
     this.speed = 3;
@@ -26,26 +26,25 @@ class Player{
   }
 
   draw(){
-    // this.context.fillStyle = "blue";
-    // this.context.fillRect(this.x-this.size/2, this.y-this.size/2, this.size, this.size);
-
+   
     const img = new Image();
-    if(this.direction <0){
-      if (this.isColliding){
-        img.src = "img/player-left.png";
-      }else{
-        img.src = "img/player-jump-left.png";
-      }
+    img.src = "img/player-left.png";
+    // if(this.direction <0){
+    //   if (this.isColliding){
+    //     img.src = "img/player-left.png";
+    //   }else{
+    //     img.src = "img/player-jump-left.png";
+    //   }
      
-    }else if (this.direction >0){
-      if (this.isColliding){
-        img.src = "img/player-right.png";
-      }else{
-        img.src = "img/player-jump-right.png";
-      }
-    }else if (this.direction ===0){
-      img.src = "img/player-center.png";
-    }
+    // }else if (this.direction >0){
+    //   if (this.isColliding){
+    //     img.src = "img/player-right.png";
+    //   }else{
+    //     img.src = "img/player-jump-right.png";
+    //   }
+    // }else if (this.direction ===0){
+    //   img.src = "img/player-center.png";
+    // }
   
     this.context.drawImage(img, this.x-this.size/2, this.y-this.size/2, this.size, this.size);
   
