@@ -31,9 +31,20 @@ class Player{
 
     const img = new Image();
     if(this.direction <0){
-      img.src = "img/player-left.png";
-    }else if (this.direction >=0){
-      img.src = "img/player-right.png";
+      if (this.isColliding){
+        img.src = "img/player-left.png";
+      }else{
+        img.src = "img/player-jump-left.png";
+      }
+     
+    }else if (this.direction >0){
+      if (this.isColliding){
+        img.src = "img/player-right.png";
+      }else{
+        img.src = "img/player-jump-right.png";
+      }
+    }else if (this.direction ===0){
+      img.src = "img/player-center.png";
     }
   
     this.context.drawImage(img, this.x-this.size/2, this.y-this.size/2, this.size, this.size);

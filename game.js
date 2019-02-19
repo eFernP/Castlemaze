@@ -158,13 +158,9 @@ class Game{
     this.player = new Player(this.canvas);
     this.key = new Key(12, this.player, this.canvas,  this.canvas.width/2-300, this.canvas.height-410);
 
-    // this.context.font = '12px Arial';
-    // this.context.fillStyle = 'black';
-    // this.context.strokeText('Hello World',10,100);
-
     const loop = () =>{
       if (!this.isGameOver){
-         
+        
         if (this.timer === 50){
           if (this.level ===7){
             this.fallSpikes.push(new FallSpike(7, this.canvas, this.canvas.width/2-135, this.canvas.height-70, 5));
@@ -233,6 +229,8 @@ class Game{
         this.clearCanvas();
         this.updateCanvas();
         this.drawCanvas();
+
+        
         window.requestAnimationFrame(loop);
       }
     }
@@ -240,6 +238,8 @@ class Game{
     window.requestAnimationFrame(loop);
 
   };
+
+
 
 
   updateCanvas(){
@@ -262,7 +262,7 @@ class Game{
         s.update();
       }
     });
-  }
+  };
 
   drawCanvas(){
     
@@ -322,11 +322,11 @@ class Game{
     });
     
     this.player.draw();
-  }
+  };
 
   clearCanvas(){
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-  }
+  };
 
   checkAllCollisions(){
     let inFloor = this.player.checkScreen();
@@ -607,11 +607,12 @@ class Game{
     }
   };
 
+
   winCallback(callback){
     this.onWin = callback;
-  }
+  };
 
   gameOverCallback(callback){
     this.onGameOver = callback;
-  }
-}
+  };
+};
