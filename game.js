@@ -18,6 +18,10 @@ class Game{
     this.timer = 0;
     this.audioMonster = new Audio("audio/monster.mp3");
     this.audioSteel = new Audio("audio/steel.mp3");
+    this.audioSwoosh = new Audio("audio/swoosh.mp3");
+    this.audioGrowl = new Audio("audio/growl.mp3");
+    this.audioMeat = new Audio("audio/meat.mp3");
+    this.audioWin = new Audio("audio/win.mp3");
    
   };
 
@@ -167,6 +171,7 @@ class Game{
           if (this.level ===7){
             this.fallSpikes.push(new FallSpike(7, this.canvas, this.canvas.width/2-135, this.canvas.height-70, 5));
             this.fallSpikes.push(new FallSpike(7, this.canvas, this.canvas.width/2+135, this.canvas.height-70, 5));
+            this.audioSwoosh.play();
           }
         }
 
@@ -174,36 +179,43 @@ class Game{
           if (this.level ===2){
             this.fallSpikes.push(new FallSpike(2, this.canvas, this.canvas.width/2, 265, 5));
             this.timer = 0;
+            this.audioSwoosh.play();
           }
 
           if (this.level ===3){
             this.fallSpikes.push(new FallSpike(3, this.canvas, this.canvas.width-200, this.canvas.height-105, 5));
             this.timer = 0;
+            this.audioSwoosh.play();
           }
 
           if (this.level ===6){
             this.fallSpikes.push(new FallSpike(6, this.canvas, 150, 0, 5));
             this.timer = 0;
+            this.audioSwoosh.play();
           }
 
           if (this.level ===7){
             this.fallSpikes.push(new FallSpike(7, this.canvas, this.canvas.width/2-110, this.canvas.height-70, 5));
             this.fallSpikes.push(new FallSpike(7, this.canvas, this.canvas.width/2+110, this.canvas.height-70, 5));
+            this.audioSwoosh.play();
           }
 
           if (this.level ===8){
             this.fallSpikes.push(new FallSpike(8, this.canvas, this.canvas.width/2, 0, 5));
             this.timer = 0;
+            this.audioSwoosh.play();
           }
 
           if (this.level ===9){
             this.fallSpikes.push(new FallSpike(9, this.canvas, this.canvas.width/2, 265, 5));
             this.timer = 0;
+            this.audioSwoosh.play();
           }
 
           if (this.level ===10){
             this.fallSpikes.push(new FallSpike(10, this.canvas, this.canvas.width/2, 0, 6));
             this.timer = 0;
+            this.audioSwoosh.play();
           }
      
           
@@ -214,6 +226,7 @@ class Game{
             this.fallSpikes.push(new FallSpike(7, this.canvas, this.canvas.width/2-75, this.canvas.height-70, 5));
             this.fallSpikes.push(new FallSpike(7, this.canvas, this.canvas.width/2+75, this.canvas.height-70, 5));
             this.timer = 0;
+            this.audioSwoosh.play();
           }
         }
 
@@ -221,6 +234,7 @@ class Game{
           if (this.level ===5){
             this.fallSpikes.push(new FallSpike(5, this.canvas, 175, 0, 2));
             this.timer = 0;
+            this.audioSwoosh.play();
           }
           
         }
@@ -542,7 +556,8 @@ class Game{
           }
           else if (index === 32){
             if(this.player.hasKey === true){
-              this.isGameOver = true;
+              this.gameOver();
+              this.audioWin.play();
               this.onWin(this.player.numberKids);
             }
           }
@@ -567,6 +582,7 @@ class Game{
       if (e.level === this.level){
         if(this.player.checkEnemy(e)){
           this.gameOver();
+          this.audioGrowl.play();
           this.onGameOver(this.player.numberKids);
         }
       }
@@ -576,6 +592,7 @@ class Game{
       if (s.level === this.level){
         if(this.player.checkSpike(s)){
           this.gameOver();
+          this.audioMeat.play();
           this.onGameOver(this.player.numberKids);
         }
       }
@@ -585,6 +602,7 @@ class Game{
       if (s.level === this.level){
         if(this.player.checkLittleSpike(s)){
           this.gameOver();
+          this.audioMeat.play();
           this.onGameOver(this.player.numberKids);
         }
       }
@@ -594,6 +612,7 @@ class Game{
       if (s.level === this.level){
         if(this.player.checkSpike(s)){
           this.gameOver();
+          this.audioMeat.play();
           this.onGameOver(this.player.numberKids);
         }
       }
