@@ -16,6 +16,8 @@ class Game{
     this.isGameOver = false;
     this.level = 1;
     this.timer = 0;
+    this.audioMonster = new Audio("audio/monster.mp3");
+    this.audioSteel = new Audio("audio/steel.mp3");
    
   };
 
@@ -44,8 +46,8 @@ class Game{
     this.doors.push(new Door(3, this.canvas, 100, this.canvas.height-35));
     this.platforms.push(new Platform(3, this.canvas, this.canvas.width-200, this.canvas.height-125, 400, 20));
     this.platforms.push(new Platform(3, this.canvas, 200, this.canvas.height-75, 50, 20));
-    this.spikes.push(new Spike(3, this.canvas, 250, this.canvas.height+25, 'bottom'));
-    this.spikes.push(new Spike(3, this.canvas, 300, this.canvas.height+25, 'bottom'));
+    this.spikes.push(new Spike(3, this.canvas, 250, this.canvas.height, 'bottom'));
+    this.spikes.push(new Spike(3, this.canvas, 300, this.canvas.height, 'bottom'));
     this.littleSpikes.push(new LittleSpike(3, this.canvas, 200, this.canvas.height-95));
     this.enemies.push(new Enemy(3, this.canvas, this.canvas.width-250, this.canvas.height-165, 1, 70));
 
@@ -65,8 +67,8 @@ class Game{
     this.platforms.push(new Platform(5, this.canvas, 100, this.canvas.height-280, 25, 20));
     this.enemies.push(new Enemy(5, this.canvas, this.canvas.width-300, this.canvas.height-230, 1, 100));
     this.enemies.push(new Enemy(5, this.canvas, this.canvas.width-300, this.canvas.height-430, 1, 100));
-    this.spikes.push(new Spike(5, this.canvas, 125, this.canvas.height+25, 'bottom'));
-    this.spikes.push(new Spike(5, this.canvas, 75, this.canvas.height+25, 'bottom'));
+    this.spikes.push(new Spike(5, this.canvas, 125, this.canvas.height, 'bottom'));
+    this.spikes.push(new Spike(5, this.canvas, 75, this.canvas.height, 'bottom'));
     this.littleSpikes.push(new LittleSpike(5, this.canvas, this.canvas.width-475, this.canvas.height-210));
     this.littleSpikes.push(new LittleSpike(5, this.canvas, this.canvas.width-475, this.canvas.height-410));
 
@@ -80,11 +82,11 @@ class Game{
     this.platforms.push(new Platform(6, this.canvas, this.canvas.width/2+100, this.canvas.height-200, 40, 20));
     this.platforms.push(new Platform(6, this.canvas, 150, this.canvas.height-150, 40, 20));
     this.platforms.push(new Platform(6, this.canvas, 75, this.canvas.height-200, 40, 20));
-    this.spikes.push(new Spike(6, this.canvas, this.canvas.width/2-100, this.canvas.height+25, 'bottom'));
-    this.spikes.push(new Spike(6, this.canvas, this.canvas.width/2+100, this.canvas.height+25, 'bottom'));
-    this.spikes.push(new Spike(6, this.canvas, this.canvas.width/2-50, this.canvas.height+25, 'bottom'));
-    this.spikes.push(new Spike(6, this.canvas, this.canvas.width/2+50, this.canvas.height+25, 'bottom'));
-    this.spikes.push(new Spike(6, this.canvas, this.canvas.width/2, this.canvas.height+25, 'bottom'));
+    this.spikes.push(new Spike(6, this.canvas, this.canvas.width/2-100, this.canvas.height, 'bottom'));
+    this.spikes.push(new Spike(6, this.canvas, this.canvas.width/2+100, this.canvas.height, 'bottom'));
+    this.spikes.push(new Spike(6, this.canvas, this.canvas.width/2-50, this.canvas.height, 'bottom'));
+    this.spikes.push(new Spike(6, this.canvas, this.canvas.width/2+50, this.canvas.height, 'bottom'));
+    this.spikes.push(new Spike(6, this.canvas, this.canvas.width/2, this.canvas.height, 'bottom'));
     this.littleSpikes.push(new LittleSpike(6, this.canvas, 100, this.canvas.height-10));
     this.littleSpikes.push(new LittleSpike(6, this.canvas, 75, this.canvas.height-10));
     this.littleSpikes.push(new LittleSpike(6, this.canvas, 50, this.canvas.height-10));
@@ -113,10 +115,10 @@ class Game{
     this.platforms.push(new Platform(9, this.canvas, this.canvas.width/2, this.canvas.height-85, 50, 20));
     this.platforms.push(new Platform(9, this.canvas, this.canvas.width/2, 245, 150, 20));
     this.platforms.push(new Platform(9, this.canvas, this.canvas.width/2+150, this.canvas.height-150, 50, 20));
-    this.spikes.push(new Spike(9, this.canvas, this.canvas.width/2-100, this.canvas.height+25, 'bottom'));
-    this.spikes.push(new Spike(9, this.canvas, this.canvas.width/2+100, this.canvas.height+25, 'bottom'));
-    this.spikes.push(new Spike(9, this.canvas, this.canvas.width/2-50, this.canvas.height+25, 'bottom'));
-    this.spikes.push(new Spike(9, this.canvas, this.canvas.width/2+50, this.canvas.height+25, 'bottom'));
+    this.spikes.push(new Spike(9, this.canvas, this.canvas.width/2-100, this.canvas.height, 'bottom'));
+    this.spikes.push(new Spike(9, this.canvas, this.canvas.width/2+100, this.canvas.height, 'bottom'));
+    this.spikes.push(new Spike(9, this.canvas, this.canvas.width/2-50, this.canvas.height, 'bottom'));
+    this.spikes.push(new Spike(9, this.canvas, this.canvas.width/2+50, this.canvas.height, 'bottom'));
 
 
     this.doors.push(new Door(10, this.canvas, this.canvas.width-150, this.canvas.height-35));
@@ -284,6 +286,7 @@ class Game{
     this.enemies.forEach((e)=> {
       if (e.level === this.level){
         e.draw();
+        
       }
     });
 
@@ -355,7 +358,7 @@ class Game{
 
           this.player.isColliding = true;
           this.timer = 0;
-
+          this.resetAudios();
 
           if (index === 0){
             this.level = 7;
@@ -371,6 +374,7 @@ class Game{
             this.level = 4;
             this.player.x = 150;
             this.player.y = this.canvas.height-100-this.player.size/2;
+            this.audioMonster.play();
           
           }
           else if (index === 3){
@@ -382,6 +386,7 @@ class Game{
             this.level = 3;
             this.player.x = this.canvas.width-150;
             this.player.y = this.canvas.height-this.player.size/2;
+            this.audioMonster.play();
           }
           else if (index === 5){
             this.level = 6;
@@ -402,29 +407,30 @@ class Game{
             this.level = 5;
             this.player.x = this.canvas.width-200;
             this.player.y = this.canvas.height-this.player.size/2;
+            this.audioMonster.play();
           }
           else if (index === 9){
             this.level = 7;
             this.player.x = this.canvas.width/2+100;
             this.player.y = this.canvas.height-120;
-            // this.level = 13;
-            // this.player.x = this.canvas.width/2;
-            // this.player.y = 75;
           }
           else if (index === 10){
             this.level = 1;
             this.player.x = this.canvas.width-200;
             this.player.y = this.canvas.height-200-this.player.size/2;
+            
           }
           else if (index === 11){
             this.level = 6;
             this.player.x = 125;
             this.player.y = this.canvas.height-300-this.player.size/2;
+            
           }
           else if (index === 12){
             this.level = 3;
             this.player.x = this.canvas.width-150;
             this.player.y = this.canvas.height-135-this.player.size/2;
+            this.audioMonster.play();
           }
           else if (index === 13){
             this.level = 12;
@@ -435,11 +441,13 @@ class Game{
             this.level = 8;
             this.player.x = this.canvas.width/2-50;
             this.player.y = this.canvas.height-this.player.size/2;
+            this.audioMonster.play();
           }
           else if (index === 15){
             this.level = 4;
             this.player.x = this.canvas.width-250;
             this.player.y = this.canvas.height-this.player.size/2;
+            this.audioMonster.play();
           }
           else if (index === 16){
             this.level = 2;
@@ -473,7 +481,7 @@ class Game{
             this.level = 3;
             this.player.x = 150;
             this.player.y = this.canvas.height-this.player.size/2;
-            // 
+            this.audioMonster.play();
           }
           else if (index === 22){
             this.level = 13;
@@ -492,11 +500,13 @@ class Game{
             this.level = 5;
             this.player.x = this.canvas.width-200;
             this.player.y = this.canvas.height-400-this.player.size/2;
+            this.audioMonster.play();
           }
           else if (index === 25){
             this.level = 8;
             this.player.x = this.canvas.width-125;
             this.player.y = this.canvas.height-150-this.player.size/2;
+            this.audioMonster.play();
           }
           else if (index === 26){
             this.level = 13;
@@ -507,6 +517,7 @@ class Game{
             this.level = 10;
             this.player.x = this.canvas.width-200;
             this.player.y = this.canvas.height-this.player.size/2;
+            this.audioMonster.play();
           }
           else if (index === 28){
             this.level = 9;
@@ -527,6 +538,7 @@ class Game{
             this.level = 10;
             this.player.x = 200;
             this.player.y = this.canvas.height-this.player.size/2;
+            this.audioMonster.play();
           }
           else if (index === 32){
             if(this.player.hasKey === true){
@@ -538,6 +550,7 @@ class Game{
             this.level = 5;
             this.player.x = this.canvas.width-200;
             this.player.y = this.canvas.height-200-this.player.size/2;
+            this.audioMonster.play();
           }
           else if (index === 34){
             this.level = 13;
@@ -553,7 +566,7 @@ class Game{
     this.enemies.forEach((e)=>{
       if (e.level === this.level){
         if(this.player.checkEnemy(e)){
-          this.isGameOver = true;
+          this.gameOver();
           this.onGameOver(this.player.numberKids);
         }
       }
@@ -562,7 +575,7 @@ class Game{
     this.spikes.forEach((s)=>{
       if (s.level === this.level){
         if(this.player.checkSpike(s)){
-          this.isGameOver = true;
+          this.gameOver();
           this.onGameOver(this.player.numberKids);
         }
       }
@@ -571,7 +584,7 @@ class Game{
     this.littleSpikes.forEach((s)=>{
       if (s.level === this.level){
         if(this.player.checkLittleSpike(s)){
-          this.isGameOver = true;
+          this.gameOver();
           this.onGameOver(this.player.numberKids);
         }
       }
@@ -580,7 +593,7 @@ class Game{
     this.fallSpikes.forEach((s)=>{
       if (s.level === this.level){
         if(this.player.checkSpike(s)){
-          this.isGameOver = true;
+          this.gameOver();
           this.onGameOver(this.player.numberKids);
         }
       }
@@ -605,6 +618,17 @@ class Game{
     }
   };
 
+  gameOver(){
+    this.isGameOver = true;
+    this.resetAudios();
+  }
+
+  resetAudios(){
+    this.audioMonster.pause();
+    this.audioMonster.currentTime = 0;
+    this.audioSteel.pause();
+    this.audioSteel.currentTime = 0;
+  }
 
   winCallback(callback){
     this.onWin = callback;

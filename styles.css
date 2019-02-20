@@ -197,3 +197,7 @@ canvas{
   background-color: rgb(175, 16, 167);
 
 }
+
+#music-audio{
+  display: none;
+}

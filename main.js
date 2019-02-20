@@ -66,6 +66,7 @@ const main = () => {
         </div>
         <canvas></canvas>
         <div class="floor"> </div>
+        <audio controls autoplay id="music-audio"><source src="audio/music.mp3"></audio>
       </section>
     `);
 

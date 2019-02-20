@@ -12,7 +12,8 @@ class Spike{
     this.sizeY = 75;
     this.speed = 20;
     this.position = position;
-    this.direction = 1;
+    this.direction =-1;
+    this.audioSteel = new Audio("audio/steel.mp3");
   }
 
 
@@ -24,9 +25,11 @@ class Spike{
       if (this.y+this.sizeY/2 <= this.canvas.height+20){
         this.direction = -1; 
         this.speed = 1;
+        
       }else if (this.y-this.sizeY/2 > this.canvas.height+60){
         this.direction = 1;
         this.speed = 20;
+        this.audioSteel.play();
       }
     }
 
