@@ -62,7 +62,8 @@ const main = () => {
       <section class="game-screen">
         <div class="interface">
           <div id="kids-text">Kids: 0/3</div> 
-          <button id="quitButton" class="button">Quit</button>
+          <button id="music-button" class="button">Music</button>
+          <button id="sound-button" class="button">Sound effects</button>
         </div>
         <canvas></canvas>
         <div class="floor"> </div>
@@ -80,10 +81,43 @@ const main = () => {
     canvasElement.setAttribute('width', width);
     canvasElement.setAttribute('height', height);
 
+    
+    
     const game = new Game(canvasElement);
     game.winCallback(buildWinScreen);
     game.gameOverCallback(buildGameOverScreen);
     game.startLoop();
+
+    const muteMusic = () =>{
+      const music = document.getElementById('music-audio');
+
+      if (!music.muted){
+        music.muted = true;
+      }else{
+        music.muted = false;
+      }
+     
+    };
+
+    const muteSound = () =>{
+
+      if (game.audioGrowl.muted){
+        game.audioGrowl.muted = false;
+        game.audioWin.muted = false;
+        game.audioMeat.muted = false;
+        game.audioSwoosh.muted = false;
+        game.audioSteel.muted = false;
+        game.audioMonster.muted = false;
+      }else{
+        game.audioGrowl.muted = true;
+        game.audioWin.muted = true;
+        game.audioMeat.muted = true;
+        game.audioSwoosh.muted = true;
+        game.audioSteel.muted = true;
+        game.audioMonster.muted = true;
+      }
+      
+    };
 
     const setPlayerDirection = () => {
       if(event.code === 'ArrowLeft'){
@@ -122,10 +156,16 @@ const main = () => {
         game.player.isColliding = false;
       }
     }
+
+    const musicButton = document.getElementById('music-button');
+    const soundButton = document.getElementById('sound-button');
   
     document.addEventListener('keydown', setPlayerDirection);
     document.addEventListener('keyup', stopPlayer);
     document.addEventListener('keydown', jumpPlayer);
+
+    soundButton.addEventListener('click', muteSound);
+    musicButton.addEventListener('click', muteMusic);
 
   };
 

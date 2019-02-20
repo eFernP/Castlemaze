@@ -637,10 +637,13 @@ class Game{
     }
   };
 
+  
+
   gameOver(){
     this.isGameOver = true;
     this.resetAudios();
   }
+
 
   resetAudios(){
     this.audioMonster.pause();
