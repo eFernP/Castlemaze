@@ -370,9 +370,12 @@ class Game{
       if (p.level === this.level){
         if (this.player.checkDoor(p)){
 
-          this.player.isColliding = true;
-          this.timer = 0;
-          this.resetAudios();
+          if (index !== 32){
+            this.player.isColliding = true;
+            this.timer = 0;
+            this.resetAudios();
+          }
+          
 
           if (index === 0){
             this.level = 7;
@@ -477,9 +480,6 @@ class Game{
             this.level = 13;
             this.player.x = this.canvas.width/2;
             this.player.y = 75;
-            // this.level = 8;
-            // this.player.x = 125;
-            // this.player.y = this.canvas.height-150-this.player.size/2;
           }
           else if (index === 19){
             this.level = 6;
@@ -501,9 +501,6 @@ class Game{
             this.level = 13;
             this.player.x = this.canvas.width/2;
             this.player.y = 75;
-            // this.level = 7;
-            // this.player.x = 150;
-            // this.player.y = this.canvas.height-this.player.size/2;
           }
           else if (index === 23){
             this.level = 9;

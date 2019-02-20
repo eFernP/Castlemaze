@@ -63,8 +63,8 @@ const main = () => {
         <div class="interface">
           <div id="kids-text">Kids: 0/3</div> 
           <div class="interface-buttons">
-            <button id="music-button" class="button">Music</button>
-            <button id="sound-button" class="button">Sound</button>
+            <button id="music-button" class="button-interface">Music</button>
+            <button id="sound-button" class="button-interface">Sounds</button>
           </div>
         </div>
         <canvas></canvas>
@@ -92,17 +92,21 @@ const main = () => {
 
     const muteMusic = (event) =>{
       const music = document.getElementById('music-audio');
+      const musicButton = document.getElementById('music-button');
       if (event.clientX !==0){
         if (!music.muted){
           music.muted = true;
+          musicButton.style.backgroundImage = 'linear-gradient(rgb(121, 105, 120), rgb(70, 59, 69))';
         }else{
           music.muted = false;
+          musicButton.style.backgroundImage ='linear-gradient(rgb(168, 66, 163), rgb(102, 0, 97))';
         }
       }
       
     };
 
     const muteSound = () =>{
+      const soundButton = document.getElementById('sound-button');
       if (event.clientX !==0){
         if (game.audioGrowl.muted){
           game.audioGrowl.muted = false;
@@ -113,6 +117,8 @@ const main = () => {
             e.audioSteel.muted = false;
           });
           game.audioMonster.muted = false;
+          soundButton.style.backgroundImage ='linear-gradient(rgb(168, 66, 163), rgb(102, 0, 97))';
+          
         }else{
           game.audioGrowl.muted = true;
           game.audioWin.muted = true;
@@ -122,6 +128,8 @@ const main = () => {
             e.audioSteel.muted = true;
           });
           game.audioMonster.muted = true;
+          soundButton.style.backgroundImage = 'linear-gradient(rgb(121, 105, 120), rgb(70, 59, 69))';
+          
         }
       }
     };
