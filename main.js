@@ -62,8 +62,10 @@ const main = () => {
       <section class="game-screen">
         <div class="interface">
           <div id="kids-text">Kids: 0/3</div> 
-          <button id="music-button" class="button">Music</button>
-          <button id="sound-button" class="button">Sound effects</button>
+          <div class="interface-buttons">
+            <button id="music-button" class="button">Music</button>
+            <button id="sound-button" class="button">Sound</button>
+          </div>
         </div>
         <canvas></canvas>
         <div class="floor"> </div>
@@ -88,35 +90,40 @@ const main = () => {
     game.gameOverCallback(buildGameOverScreen);
     game.startLoop();
 
-    const muteMusic = () =>{
+    const muteMusic = (event) =>{
       const music = document.getElementById('music-audio');
-
-      if (!music.muted){
-        music.muted = true;
-      }else{
-        music.muted = false;
+      if (event.clientX !==0){
+        if (!music.muted){
+          music.muted = true;
+        }else{
+          music.muted = false;
+        }
       }
-     
+      
     };
 
     const muteSound = () =>{
-
-      if (game.audioGrowl.muted){
-        game.audioGrowl.muted = false;
-        game.audioWin.muted = false;
-        game.audioMeat.muted = false;
-        game.audioSwoosh.muted = false;
-        game.audioSteel.muted = false;
-        game.audioMonster.muted = false;
-      }else{
-        game.audioGrowl.muted = true;
-        game.audioWin.muted = true;
-        game.audioMeat.muted = true;
-        game.audioSwoosh.muted = true;
-        game.audioSteel.muted = true;
-        game.audioMonster.muted = true;
+      if (event.clientX !==0){
+        if (game.audioGrowl.muted){
+          game.audioGrowl.muted = false;
+          game.audioWin.muted = false;
+          game.audioMeat.muted = false;
+          game.audioSwoosh.muted = false;
+          game.spikes.forEach(function(e){
+            e.audioSteel.muted = false;
+          });
+          game.audioMonster.muted = false;
+        }else{
+          game.audioGrowl.muted = true;
+          game.audioWin.muted = true;
+          game.audioMeat.muted = true;
+          game.audioSwoosh.muted = true;
+          game.spikes.forEach(function(e){
+            e.audioSteel.muted = true;
+          });
+          game.audioMonster.muted = true;
+        }
       }
-      
     };
 
     const setPlayerDirection = () => {

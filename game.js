@@ -17,7 +17,6 @@ class Game{
     this.level = 1;
     this.timer = 0;
     this.audioMonster = new Audio("audio/monster.mp3");
-    this.audioSteel = new Audio("audio/steel.mp3");
     this.audioSwoosh = new Audio("audio/swoosh.mp3");
     this.audioGrowl = new Audio("audio/growl.mp3");
     this.audioMeat = new Audio("audio/meat.mp3");
@@ -648,8 +647,6 @@ class Game{
   resetAudios(){
     this.audioMonster.pause();
     this.audioMonster.currentTime = 0;
-    this.audioSteel.pause();
-    this.audioSteel.currentTime = 0;
   }
 
   winCallback(callback){

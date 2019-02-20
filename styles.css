@@ -17,7 +17,7 @@ body {
 
 
 body {
-  color: rgb(240, 228, 234);
+  color: rgb(245, 235, 240);
   font-family: Prata, Helvetica, Arial, sans-serif;
   font-size: 20px;
   line-height: 147%;
@@ -153,9 +153,9 @@ canvas{
   background-image: url("img/backgroundDef.png");
   background-size: cover;
   background-position: center;
-  border-left: 2px solid #fff;
-  border-right: 2px solid #fff;
-  border-top: 2px solid #fff;
+  border-left: 2px solid rgb(245, 235, 240);
+  border-right: 2px solid rgb(245, 235, 240);
+  border-top: 2px solid rgb(245, 235, 240);;
 }
 
 .floor{
@@ -166,10 +166,10 @@ canvas{
   background-size: cover;
   margin: 0;
   padding: 20px;
-  color: white;
-  border-left: 2px solid #fff;
-  border-right: 2px solid #fff;
-  border-bottom: 2px solid #fff;
+ 
+  border-left: 2px solid rgb(245, 235, 240);;
+  border-right: 2px solid rgb(245, 235, 240);;
+  border-bottom: 2px solid rgb(245, 235, 240);;
 }
 
 .interface{
@@ -182,7 +182,7 @@ canvas{
   font-size: 16px;
 }
 
-.interface button{
+.interface .button{
   
   padding: 10px 20px;
   font-size: 18px;
@@ -190,11 +190,13 @@ canvas{
   box-shadow: none;
   background-color: rgb(121, 12, 115);
   transition-duration: 1s;
+  outline:0;
 
 }
 
-.interface button:hover{
+.interface .button:hover{
   background-color: rgb(175, 16, 167);
+  margin-left: 0;
 
 }
 
