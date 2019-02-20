@@ -14,6 +14,8 @@ class Player{
     this.gravity = 0.5;
     this.hasKey = false;
     this.numberKids = 0;
+    this.spriteChange = 0;
+    this.numberSprite = 3;
   };
 
   update(){
@@ -28,28 +30,55 @@ class Player{
   draw(){
    
     const img = new Image();
-    img.src = "img/player-left.png";
-    // if(this.direction <0){
-    //   if (this.isColliding){
-    //     img.src = "img/player-left.png";
-    //   }else{
-    //     img.src = "img/player-jump-left.png";
-    //   }
-     
-    // }else if (this.direction >0){
-    //   if (this.isColliding){
-    //     img.src = "img/player-right.png";
-    //   }else{
-    //     img.src = "img/player-jump-right.png";
-    //   }
-    // }else if (this.direction ===0){
-    //   img.src = "img/player-center.png";
-    // }
+    img.src = "img/sprites-player6.png";
+
+    if (this.spriteChange ===10){
+
+      if(this.direction ===0){
+            this.numberSprite = 3;    
+      }
+
+      if(this.direction ===-1){
+        this.numberSprite--;
+          if (this.numberSprite <=0.03){
+            this.numberSprite = 2;
+          }
+         
+      }
+
+      if(this.direction ===1){
+        this.numberSprite++;
+        if (this.numberSprite >=5.98){
+          this.numberSprite = 4;
+        }
+       
+
+      }
+
+      if(this.direction===-1 && this.isColliding ===false){
+        this.numberSprite = 0;
+      }
+
+      if(this.direction===1 && this.isColliding ===false){
+        this.numberSprite = 6;
+      }
+      this.spriteChange = 0;
+    }
+
+    if(this.numberSprite===5){
+      this.numberSprite = 4.98;
+    }
+    if(this.numberSprite===1){
+      this.numberSprite = 1.02;
+    }
+
+    this.context.drawImage(img, this.size*this.numberSprite, 0, this.size, this.size, this.x-this.size/2, this.y-this.size/2, this.size, this.size);
+      
   
-    this.context.drawImage(img, this.x-this.size/2, this.y-this.size/2, this.size, this.size);
+    //this.context.drawImage(img, 0 , 0, this.size, this.size, this.x-this.size/2, this.y-this.size/2, this.size, this.size);
     // this.context.fillStyle = "blue";
     // this.context.fillRect(this.x-this.size/2, this.y-this.size/2, this.size, this.size);
-  
+    this.spriteChange++;
   };
 
   setDirection(direction){

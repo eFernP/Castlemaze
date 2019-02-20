@@ -88,14 +88,14 @@ class Game{
     this.littleSpikes.push(new LittleSpike(6, this.canvas, 100, this.canvas.height-10));
     this.littleSpikes.push(new LittleSpike(6, this.canvas, 75, this.canvas.height-10));
     this.littleSpikes.push(new LittleSpike(6, this.canvas, 50, this.canvas.height-10));
-    this.kids.push(new Kid(6, 1, this.canvas, 75, this.canvas.height-230));
+    this.kids.push(new Kid(6, 1, this.canvas, 75, this.canvas.height-225));
 
     this.doors.push(new Door(7, this.canvas, 100, this.canvas.height-35));
     this.doors.push(new Door(7, this.canvas, this.canvas.width-100, this.canvas.height-35));
     this.doors.push(new Door(7, this.canvas, this.canvas.width/2-50, this.canvas.height-135));
     this.doors.push(new Door(7, this.canvas, this.canvas.width/2+50, this.canvas.height-135));
     this.platforms.push(new Platform(7, this.canvas, this.canvas.width/2, this.canvas.height-90, 300, 20));
-    this.kids.push(new Kid(7, 2, this.canvas, this.canvas.width/2, this.canvas.height-20));
+    this.kids.push(new Kid(7, 2, this.canvas, this.canvas.width/2, this.canvas.height-15));
     
     this.doors.push(new Door(8, this.canvas, 75, this.canvas.height-185));
     this.doors.push(new Door(8, this.canvas, this.canvas.width-75, this.canvas.height-185));
@@ -105,7 +105,7 @@ class Game{
     this.platforms.push(new Platform(8, this.canvas, this.canvas.width/2, this.canvas.height-90, 80, 20));
     this.enemies.push(new Enemy(8, this.canvas, 200, this.canvas.height-30, 1, 70));
     this.enemies.push(new Enemy(8, this.canvas, this.canvas.width-200, this.canvas.height-30, 1, 70));
-    this.kids.push(new Kid(8, 3, this.canvas, 50, this.canvas.height-20));
+    this.kids.push(new Kid(8, 3, this.canvas, 50, this.canvas.height-15));
 
     this.doors.push(new Door(9, this.canvas, 150, this.canvas.height-35));
     this.doors.push(new Door(9, this.canvas, this.canvas.width-150, this.canvas.height-35));

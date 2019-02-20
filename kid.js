@@ -5,8 +5,8 @@ class Kid{
     this.number = number;
     this.canvas = canvas;
     this.context = this.canvas.getContext('2d');
-    this.sizeX = 25;
-    this.sizeY = 40;
+    this.sizeX = 20;
+    this.sizeY = 30;
     this.x = x;
     this.y = y;
     
