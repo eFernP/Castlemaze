@@ -84,7 +84,7 @@ class Game{
     this.platforms.push(new Platform(6, this.canvas, this.canvas.width/2-100, this.canvas.height-200, 40, 20));
     this.platforms.push(new Platform(6, this.canvas, this.canvas.width/2+100, this.canvas.height-200, 40, 20));
     this.platforms.push(new Platform(6, this.canvas, 150, this.canvas.height-150, 40, 20));
-    this.platforms.push(new Platform(6, this.canvas, 75, this.canvas.height-200, 40, 20));
+    this.platforms.push(new Platform(6, this.canvas, 50, this.canvas.height-200, 40, 20));
     this.spikes.push(new Spike(6, this.canvas, this.canvas.width/2-100, this.canvas.height, 'bottom'));
     this.spikes.push(new Spike(6, this.canvas, this.canvas.width/2+100, this.canvas.height, 'bottom'));
     this.spikes.push(new Spike(6, this.canvas, this.canvas.width/2-50, this.canvas.height, 'bottom'));
@@ -93,7 +93,7 @@ class Game{
     this.littleSpikes.push(new LittleSpike(6, this.canvas, 100, this.canvas.height-10));
     this.littleSpikes.push(new LittleSpike(6, this.canvas, 75, this.canvas.height-10));
     this.littleSpikes.push(new LittleSpike(6, this.canvas, 50, this.canvas.height-10));
-    this.kids.push(new Kid(6, 1, this.canvas, 75, this.canvas.height-225));
+    this.kids.push(new Kid(6, 3, this.canvas, 50, this.canvas.height-225));
 
     this.doors.push(new Door(7, this.canvas, 100, this.canvas.height-35));
     this.doors.push(new Door(7, this.canvas, this.canvas.width-100, this.canvas.height-35));
@@ -110,7 +110,7 @@ class Game{
     this.platforms.push(new Platform(8, this.canvas, this.canvas.width/2, this.canvas.height-90, 80, 20));
     this.enemies.push(new Enemy(8, this.canvas, 200, this.canvas.height-30, 1, 70));
     this.enemies.push(new Enemy(8, this.canvas, this.canvas.width-200, this.canvas.height-30, 1, 70));
-    this.kids.push(new Kid(8, 3, this.canvas, 50, this.canvas.height-15));
+    this.kids.push(new Kid(8, 1, this.canvas, 50, this.canvas.height-15));
 
     this.doors.push(new Door(9, this.canvas, 150, this.canvas.height-35));
     this.doors.push(new Door(9, this.canvas, this.canvas.width-150, this.canvas.height-35));

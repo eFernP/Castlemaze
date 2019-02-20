@@ -30,7 +30,7 @@ class Player{
   draw(){
    
     const img = new Image();
-    img.src = "img/sprites-player6.png";
+    img.src = "img/sprites-player8.png";
 
     if (this.spriteChange ===10){
 
@@ -40,7 +40,7 @@ class Player{
 
       if(this.direction ===-1){
         this.numberSprite--;
-          if (this.numberSprite <=0.03){
+          if (this.numberSprite <=0){
             this.numberSprite = 2;
           }
          
@@ -48,11 +48,15 @@ class Player{
 
       if(this.direction ===1){
         this.numberSprite++;
-        if (this.numberSprite >=5.98){
+        if (this.numberSprite >=6){
           this.numberSprite = 4;
         }
        
 
+      }
+
+      if(this.direction===0 && this.isColliding ===false){
+        this.numberSprite = 7;
       }
 
       if(this.direction===-1 && this.isColliding ===false){
@@ -65,19 +69,9 @@ class Player{
       this.spriteChange = 0;
     }
 
-    if(this.numberSprite===5){
-      this.numberSprite = 4.98;
-    }
-    if(this.numberSprite===1){
-      this.numberSprite = 1.02;
-    }
 
-    this.context.drawImage(img, this.size*this.numberSprite, 0, this.size, this.size, this.x-this.size/2, this.y-this.size/2, this.size, this.size);
+    this.context.drawImage(img, 80*this.numberSprite, 0, this.size*2, this.size*2, this.x-this.size/2, this.y-this.size/2, this.size, this.size);
       
-  
-    //this.context.drawImage(img, 0 , 0, this.size, this.size, this.x-this.size/2, this.y-this.size/2, this.size, this.size);
-    // this.context.fillStyle = "blue";
-    // this.context.fillRect(this.x-this.size/2, this.y-this.size/2, this.size, this.size);
     this.spriteChange++;
   };
 
