@@ -142,6 +142,7 @@ class Game{
     this.platforms.push(new Platform(12, this.canvas, this.canvas.width/2-150, this.canvas.height-285, 150, 20));
     this.platforms.push(new Platform(12, this.canvas, this.canvas.width/2+100, this.canvas.height-285, 40, 20));
     this.platforms.push(new Platform(12, this.canvas, this.canvas.width/2-300, this.canvas.height-385, 150, 20));
+    this.platforms.push(new Platform(12, this.canvas, this.canvas.width/2-100, this.canvas.height-85, 40, 20));
     this.enemies.push(new Enemy(12, this.canvas, this.canvas.width/2-150, this.canvas.height-325, 1, 40));
     this.littleSpikes.push(new LittleSpike(12, this.canvas, this.canvas.width/2+25, this.canvas.height-205));
     this.spikes.push(new Spike(12, this.canvas, this.canvas.width/2+100, this.canvas.height+25, 'bottom'));
