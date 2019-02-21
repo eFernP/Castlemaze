@@ -167,9 +167,9 @@ canvas{
   background-image: url("img/backgroundDef.png");
   background-size: cover;
   background-position: center;
-  border-left: 2px solid rgb(245, 235, 240);
-  border-right: 2px solid rgb(245, 235, 240);
-  border-top: 2px solid rgb(245, 235, 240);;
+  border-left: 1px solid rgb(245, 235, 240);
+  border-right: 1px solid rgb(245, 235, 240);
+  border-top: 1px solid rgb(245, 235, 240);;
 }
 
 .floor{
@@ -181,9 +181,9 @@ canvas{
   margin: 0;
   padding: 20px;
  
-  border-left: 2px solid rgb(245, 235, 240);;
-  border-right: 2px solid rgb(245, 235, 240);;
-  border-bottom: 2px solid rgb(245, 235, 240);;
+  border-left: 1px solid rgb(245, 235, 240);;
+  border-right: 1px solid rgb(245, 235, 240);;
+  border-bottom: 1px solid rgb(245, 235, 240);;
 }
 
 .interface{
