@@ -96,10 +96,12 @@ const main = () => {
       if (event.clientX !==0){
         if (!music.muted){
           music.muted = true;
-          musicButton.style.backgroundImage = 'linear-gradient(rgb(121, 105, 120), rgb(70, 59, 69))';
+          musicButton.className = "button-disabled";
+         
         }else{
           music.muted = false;
-          musicButton.style.backgroundImage ='linear-gradient(rgb(168, 66, 163), rgb(102, 0, 97))';
+         
+          musicButton.className = "button-interface";
         }
       }
       
@@ -117,7 +119,7 @@ const main = () => {
             e.audioSteel.muted = false;
           });
           game.audioMonster.muted = false;
-          soundButton.style.backgroundImage ='linear-gradient(rgb(168, 66, 163), rgb(102, 0, 97))';
+          soundButton.className = "button-interface";
           
         }else{
           game.audioGrowl.muted = true;
@@ -128,7 +130,7 @@ const main = () => {
             e.audioSteel.muted = true;
           });
           game.audioMonster.muted = true;
-          soundButton.style.backgroundImage = 'linear-gradient(rgb(121, 105, 120), rgb(70, 59, 69))';
+          soundButton.className = "button-disabled";
           
         }
       }

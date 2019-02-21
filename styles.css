@@ -214,6 +214,24 @@ canvas{
 }
 
 
+.button-disabled{
+  background-image: linear-gradient(rgb(126, 124, 126), rgb(85, 85, 85));
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  font-family: Prata, Helvetica, Arial, sans-serif;
+  padding: 10px 20px;
+  font-size: 18px;
+  width: 100px;
+  outline:0;
+  transition-duration: 2s;
+}
+
+.button-disabled:hover{
+  background-image: linear-gradient(rgb(161, 161, 161), rgb(114, 114, 114));
+}
+
 #music-audio{
   display: none;
 }
