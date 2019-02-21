@@ -5,10 +5,16 @@ const main = () => {
   let leftPressed = false;
   let rightPressed = false;
   //let game;
-  
-  localStorage.setItem('music', JSON.stringify('true'));
-  localStorage.setItem('sounds', JSON.stringify('true'));
-         
+
+  const soundsStorage = localStorage.getItem('sounds');
+  if (!soundsStorage) {
+    localStorage.setItem('sounds', JSON.stringify('true'));
+  }
+
+  const musicStorage = localStorage.getItem('music');
+  if (!musicStorage) {
+    localStorage.setItem('music', JSON.stringify('true'));
+  }
 
   const buildDom = (html) => {
     const main = document.querySelector('main');
