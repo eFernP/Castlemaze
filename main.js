@@ -6,7 +6,8 @@ const main = () => {
   let rightPressed = false;
   //let game;
   
-
+  localStorage.setItem('music', JSON.stringify('true'));
+  localStorage.setItem('sounds', JSON.stringify('true'));
          
 
   const buildDom = (html) => {
@@ -83,25 +84,27 @@ const main = () => {
     canvasElement.setAttribute('width', width);
     canvasElement.setAttribute('height', height);
 
+    const musicButton = document.getElementById('music-button');
+    const soundButton = document.getElementById('sound-button');
     
     
-    const game = new Game(canvasElement);
-    game.winCallback(buildWinScreen);
-    game.gameOverCallback(buildGameOverScreen);
-    game.startLoop();
+    
 
     const muteMusic = (event) =>{
       const music = document.getElementById('music-audio');
       const musicButton = document.getElementById('music-button');
+      const isMusic = JSON.parse(localStorage.getItem('music'));
+      console.log(isMusic);
       if (event.clientX !==0){
-        if (!music.muted){
+        if (isMusic === 'true'){
           music.muted = true;
           musicButton.className = "button-disabled";
+          localStorage.setItem('music', JSON.stringify('false'));
          
         }else{
           music.muted = false;
-         
           musicButton.className = "button-interface";
+          localStorage.setItem('music', JSON.stringify('true'));
         }
       }
       
@@ -109,8 +112,9 @@ const main = () => {
 
     const muteSound = () =>{
       const soundButton = document.getElementById('sound-button');
+      const areSounds = JSON.parse(localStorage.getItem('sounds'));
       if (event.clientX !==0){
-        if (game.audioGrowl.muted){
+        if (areSounds ==="false"){
           game.audioGrowl.muted = false;
           game.audioWin.muted = false;
           game.audioMeat.muted = false;
@@ -120,6 +124,7 @@ const main = () => {
           });
           game.audioMonster.muted = false;
           soundButton.className = "button-interface";
+          localStorage.setItem('sounds', JSON.stringify('true'));
           
         }else{
           game.audioGrowl.muted = true;
@@ -131,10 +136,55 @@ const main = () => {
           });
           game.audioMonster.muted = true;
           soundButton.className = "button-disabled";
+          localStorage.setItem('sounds', JSON.stringify('false'));
           
         }
       }
     };
+
+    const checkAudio = () =>{
+      const music = document.getElementById('music-audio');
+      const musicButton = document.getElementById('music-button');
+      const isMusic = JSON.parse(localStorage.getItem('music'));
+      const soundButton = document.getElementById('sound-button');
+      const areSounds = JSON.parse(localStorage.getItem('sounds'));
+      if (isMusic === 'false'){
+        music.muted = true;
+        musicButton.className = "button-disabled";  
+      }else{
+        music.muted = false;
+        musicButton.className = "button-interface";
+      }
+
+
+      if (areSounds ==="true"){
+        game.audioGrowl.muted = false;
+        game.audioWin.muted = false;
+        game.audioMeat.muted = false;
+        game.audioSwoosh.muted = false;
+        game.spikes.forEach(function(e){
+          e.audioSteel.muted = false;
+        });
+        game.audioMonster.muted = false;
+        soundButton.className = "button-interface";
+      }else{
+        game.audioGrowl.muted = true;
+        game.audioWin.muted = true;
+        game.audioMeat.muted = true;
+        game.audioSwoosh.muted = true;
+        game.spikes.forEach(function(e){
+          e.audioSteel.muted = true;
+        });
+        game.audioMonster.muted = true;
+        soundButton.className = "button-disabled";
+      }
+    };
+    window.onload = function(){};
+    const game = new Game(canvasElement);
+    checkAudio();
+    game.startLoop();
+    game.winCallback(buildWinScreen);
+    game.gameOverCallback(buildGameOverScreen);
 
     const setPlayerDirection = () => {
       if(event.code === 'ArrowLeft'){
@@ -173,9 +223,8 @@ const main = () => {
         game.player.isColliding = false;
       }
     }
-
-    const musicButton = document.getElementById('music-button');
-    const soundButton = document.getElementById('sound-button');
+    
+   
   
     document.addEventListener('keydown', setPlayerDirection);
     document.addEventListener('keyup', stopPlayer);
