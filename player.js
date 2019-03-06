@@ -161,34 +161,6 @@ class Player{
     }
   };
 
-  checkSpike(spike){
-    const collideRight = this.x + this.size/2 >= spike.x - spike.sizeX/2;
-    const collideLeft = this.x - this.size/2 <= spike.x + spike.sizeX/2;
-    const collideTop = this.y - this.size/2 <=  spike.y + spike.sizeY/2;
-    const collideBottom = this.y + this.size/2 >= spike.y - spike.sizeY/2;
-
-    if (collideRight && collideLeft && collideTop && collideBottom){
-      return true;
-
-    } else{
-      return false;
-    }
-  };
-
-  checkLittleSpike(spike){
-    const collideRight = this.x + this.size/2 >= spike.x - spike.sizeX/2;
-    const collideLeft = this.x - this.size/2 <= spike.x + spike.sizeX/2;
-    const collideTop = this.y - this.size/2 <=  spike.y + spike.sizeY/2;
-    const collideBottom = this.y + this.size/2 >= spike.y - spike.sizeY/2;
-
-    if (collideRight && collideLeft && collideTop && collideBottom){
-      return true;
-
-    } else{
-      return false;
-    }
-  };
-
   checkObject(k){
     const collideRight = this.x + this.size/2 >= k.x - k.sizeX/2;
     const collideLeft = this.x - this.size/2 <= k.x + k.sizeX/2;

@@ -11,7 +11,6 @@ class FallSpike {
       this.sizeY = 20;
       this.speed = speed;
       this.direction = 1;
-      this.ctx = this.canvas.getContext('2d');
   };
 
   update(){
@@ -23,13 +22,4 @@ class FallSpike {
     img.src = "img/fall-spike.png";
     this.context.drawImage(img, this.x-this.sizeX/2, this.y-this.sizeY/2, this.sizeX, this.sizeY);
   }
-
-  // checkCollision(p){ 
-  //   if (this.y + this.sizeY/2 >= p.y - p.sizeY/2){
-  //     return true;
-
-  //   } else{
-  //     return false;
-  //   }
-  // };
 }

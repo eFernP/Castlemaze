@@ -587,7 +587,7 @@ class Game{
 
     this.spikes.forEach((s)=>{
       if (s.level === this.level){
-        if(this.player.checkSpike(s)){
+        if(this.player.checkEnemy(s)){
           this.gameOver();
           this.audioMeat.play();
           this.onGameOver(this.player.numberKids);
@@ -597,7 +597,7 @@ class Game{
 
     this.littleSpikes.forEach((s)=>{
       if (s.level === this.level){
-        if(this.player.checkLittleSpike(s)){
+        if(this.player.checkEnemy(s)){
           this.gameOver();
           this.audioMeat.play();
           this.onGameOver(this.player.numberKids);
@@ -607,7 +607,7 @@ class Game{
 
     this.fallSpikes.forEach((s)=>{
       if (s.level === this.level){
-        if(this.player.checkSpike(s)){
+        if(this.player.checkEnemy(s)){
           this.gameOver();
           this.audioMeat.play();
           this.onGameOver(this.player.numberKids);

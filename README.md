@@ -35,6 +35,7 @@ Game:
 - fallSpikes
 - kids
 - isGameOver
+- audios
 - startLoop()
 - updateCanvas()
 - clearCanvas()
@@ -67,8 +68,7 @@ Player:
 - checkPlatform(platform)
 - checkDoor(door)
 - checkEnemy(enemy)
-- checkSpike(spike)
-- checkObject(kid)
+- checkObject(object)
 
 Enemy;
 
