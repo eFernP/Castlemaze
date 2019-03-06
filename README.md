@@ -30,13 +30,19 @@ Game:
 - enemies
 - doors
 - platforms
+- spikes
+- littleSpikes
+- fallSpikes
+- kids
 - isGameOver
 - startLoop()
 - updateCanvas()
 - clearCanvas()
 - drawCanvas()
 - checkAllCollisions()
+- gameOver()
 - gameOverCallback(callback)
+- winCallback(callback)
 
 
 Player:
@@ -48,30 +54,46 @@ Player:
 - y
 - speed
 - direction
+- jumpSpeed
+- gravity
+- isColliding
+- hasKey
+- numberKids
+- spriteChange
+- numberSprite
 - update()
 - draw()
 - checkScreen()
 - checkPlatform(platform)
 - checkDoor(door)
 - checkEnemy(enemy)
+- checkSpike(spike)
+- checkObject(kid)
 
 Enemy;
 
 - canvas
 - context
-- size
+- sizeX
+- sizeY
 - x
 - y
 - speed
 - direction
+- speed
+- direction
+- range
+- start
 - update(player)
 - draw()
+- setDirection(direction)
 
 Door:
 
 - canvas
 - context
-- size
+- sizeX
+- sizeY
 - x
 - y
 - draw()
@@ -81,9 +103,49 @@ Platform:
 
 - canvas
 - context
-- size
+- sizeX
+- sizeY
 - x
 - y
+- draw()
+- drawLockedDoor()
+
+Spike:
+
+- canvas
+- context
+- sizeX
+- sizeY
+- x
+- y
+- speed
+- position
+- direction
+- update()
+- draw()
+
+
+LittleSpike:
+
+- canvas
+- context
+- sizeX
+- sizeY
+- x
+- y
+- draw()
+
+FallSpike:
+
+- canvas
+- context
+- sizeX
+- sizeY
+- x
+- y
+- speed
+- direction
+- update()
 - draw()
 
 
@@ -128,24 +190,17 @@ Main:
 
 ## Links
 
-### Trello
-
-[Link url](https://trello.com)
-
 ### Git
 
-Especificar las url del proyecto y del deploy
+Repositorio: https://github.com/esterFern/Castlemaze
 
-[Link Repositorio](http://github.com)
-
-[Link Deploy](http://github.com)
+Deploy: https://esterfern.github.io/Castlemaze/
 
 ### Slides.com
 
-Especificar la url de la presentacion
-
-[Link Slides.com](http://slides.com)
+https://slides.com/esterfernandez/deck/live#/
 
 ## Instrucciones del juego 
 
-Al finalizar el juego generar las instrucciones
+Mueve el personaje hacia la izquierda o la derecha usando las flechas del teclado correspondientes. Salta con la barra espaciadora.
+Busca la salida del laberinto. Esquiva las trampas y los enemigos. Rescata a niños si lo deseas para mayor puntuación antes de marcharte del laberinto. 
