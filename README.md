@@ -192,9 +192,9 @@ Main:
 
 ### Git
 
-Repositorio: https://github.com/esterFern/Castlemaze
+Repositorio: https://github.com/eFernP/Castlemaze
 
-Deploy: https://esterfern.github.io/Castlemaze/
+Deploy: https://eFernP.github.io/Castlemaze/
 
 ### Slides.com
 
